@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       <tr><td style="padding:10px 0;border-bottom:1px solid #eee;color:#5A5C56">泊数</td><td style="padding:10px 0;border-bottom:1px solid #eee;font-weight:400;text-align:right">${nights || '—'}泊</td></tr>
       <tr><td style="padding:10px 0;color:#5A5C56">お支払い金額</td><td style="padding:10px 0;font-weight:600;color:#0A3D2E;text-align:right">${amountStr}</td></tr>
     </table>
-    <p style="color:#5A5C56;font-size:13px;line-height:1.8">チェックイン: 16:00〜 / チェックアウト: 〜10:00<br>鵠沼海岸駅から徒歩3分。自転車の鍵はセルフチェックイン時にお渡しします。</p>
+    <p style="color:#5A5C56;font-size:13px;line-height:1.8">チェックイン: 16:00〜 / チェックアウト: 〜10:00<br>江ノ電「鵠沼」駅から徒歩3分。自転車の鍵はセルフチェックイン時にお渡しします。</p>
     <p style="color:#5A5C56;font-size:13px;line-height:1.8;margin-top:20px">ご不明な点はホスト Kiwa までお気軽にご連絡ください。</p>
     ${paymentIntentId ? `<p style="color:#aaa;font-size:11px;margin-top:24px">Payment ID: ${paymentIntentId}</p>` : ''}
   </div>
