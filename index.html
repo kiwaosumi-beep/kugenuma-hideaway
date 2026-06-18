@@ -10,10 +10,10 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --em:        #0A3D2E;
-  --em-mid:    #1A5C46;
-  --em-light:  #2E7D5E;
-  --em-pale:   #D4E8DF;
+  --em:        #3D6B14;
+  --em-mid:    #527A1E;
+  --em-light:  #6EA028;
+  --em-pale:   #DFF0C4;
   --gold:      #C8A96E;
   --gold-lt:   #E0C88A;
   --gold-pale: #F5EDD8;
@@ -22,7 +22,7 @@
   --white:     #FFFFFF;
   --ink:       #1A1A14;
   --stone:     #5A5C56;
-  --border:    rgba(10,61,46,0.10);
+  --border:    rgba(61,107,20,0.10);
   --border-g:  rgba(200,169,110,0.30);
   --serif:     'Cormorant Garamond','Noto Serif JP',serif;
   --sans:      'Noto Sans JP',sans-serif;
@@ -35,7 +35,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
   opacity:0.4}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(10,61,46,0.88);backdrop-filter:blur(12px);transition:background 0.3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(61,107,20,0.88);backdrop-filter:blur(12px);transition:background 0.3s}
 .nav-logo{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--white);letter-spacing:0.08em;text-decoration:none}
 .nav-logo span{color:var(--gold-lt);font-style:italic}
 .nav-links{display:flex;align-items:center;gap:1.8rem}
@@ -52,7 +52,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;display:flex;ali
 .hero-bg{position:absolute;inset:0;background:url("https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/a2cc88ba-6a55-42f7-91c2-af61a017be35.jpg") center/cover no-repeat;filter:brightness(0.55)}
 .hero-wave{position:absolute;bottom:0;left:0;right:0;height:120px;overflow:hidden}
 .hero-wave svg{display:block;width:100%;height:100%}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,61,46,0.15) 0%,rgba(10,61,46,0.55) 100%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(61,107,20,0.15) 0%,rgba(61,107,20,0.55) 100%)}
 .hero-content{position:relative;z-index:2;text-align:center;padding:0 1.5rem;margin-top:4rem}
 .hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold-lt);font-size:0.68rem;letter-spacing:0.2em;padding:0.35rem 1.2rem;margin-bottom:1.5rem;border-radius:1px}
 .hero-title{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:0.8rem}
@@ -76,7 +76,7 @@ section{padding:6rem 0}
 /* FEATURES */
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:3rem}
 .feature-card{background:var(--white);padding:2rem;border-radius:4px;border:1px solid var(--border);transition:all 0.3s}
-.feature-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(10,61,46,0.08)}
+.feature-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(61,107,20,0.08)}
 .feature-icon{width:48px;height:48px;background:var(--em-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.4rem}
 .feature-name{font-family:var(--serif);font-size:1.1rem;color:var(--em);margin-bottom:0.5rem}
 .feature-desc{font-size:0.82rem;color:var(--stone);line-height:1.7}
@@ -104,7 +104,7 @@ section{padding:6rem 0}
 
 /* BEACH */
 .beach-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.beach-visual{border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#1A5C46,#0A3D2E);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;position:relative}
+.beach-visual{border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#527A1E,#3D6B14);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;position:relative}
 .beach-visual-inner{text-align:center;color:rgba(255,255,255,0.9)}
 .beach-visual-inner .big-emoji{font-size:5rem;display:block;margin-bottom:0.5rem}
 .beach-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
@@ -152,7 +152,7 @@ footer{background:var(--em);padding:3rem 0;text-align:center}
 .footer-sub{font-size:0.75rem;color:rgba(255,255,255,0.45);letter-spacing:0.08em}
 
 /* MODAL */
-.modal-bg{display:none;position:fixed;inset:0;z-index:900;background:rgba(10,61,46,0.6);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem}
+.modal-bg{display:none;position:fixed;inset:0;z-index:900;background:rgba(61,107,20,0.6);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem}
 .modal-bg.open{display:flex}
 .modal{background:var(--white);border-radius:8px;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;position:relative}
 .modal-header{background:var(--em);padding:1.4rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
@@ -199,7 +199,7 @@ footer{background:var(--em);padding:3rem 0;text-align:center}
 .cal-day:hover:not(.cal-disabled):not(.cal-booked){background:var(--em-pale);color:var(--em)}
 .cal-day.cal-today{font-weight:400;color:var(--em-mid)}
 .cal-day.cal-disabled{color:var(--em-pale);cursor:not-allowed;pointer-events:none}
-.cal-day.cal-booked{background:rgba(10,61,46,0.08);color:var(--em-pale);cursor:not-allowed;text-decoration:line-through}
+.cal-day.cal-booked{background:rgba(61,107,20,0.08);color:var(--em-pale);cursor:not-allowed;text-decoration:line-through}
 .cal-day.cal-checkin{background:var(--em);color:var(--white);border-radius:3px 0 0 3px}
 .cal-day.cal-checkout{background:var(--em);color:var(--white);border-radius:0 3px 3px 0}
 .cal-day.cal-inrange{background:var(--em-pale);color:var(--em);border-radius:0}
@@ -219,13 +219,13 @@ footer{background:var(--em);padding:3rem 0;text-align:center}
 .gallery-section{background:var(--white);padding:5rem 0}
 .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2rem}
 .gallery-grid .main-photo{grid-column:span 2;grid-row:span 2}
-.gallery-item{position:relative;overflow:hidden;cursor:pointer;background:#0A3D2E}
-.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(10,61,46,0);transition:background 0.3s}
-.gallery-item:hover::after{background:rgba(10,61,46,0.25)}
+.gallery-item{position:relative;overflow:hidden;cursor:pointer;background:#3D6B14}
+.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(61,107,20,0);transition:background 0.3s}
+.gallery-item:hover::after{background:rgba(61,107,20,0.25)}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/2;transition:transform 0.5s}
 .gallery-item.main-photo img{aspect-ratio:auto}
 .gallery-item:hover img{transform:scale(1.04)}
-.gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,61,46,0.75));padding:1.5rem 1rem 0.8rem;color:rgba(255,255,255,0.9);font-size:0.72rem;letter-spacing:0.06em;opacity:0;transition:opacity 0.3s}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(61,107,20,0.75));padding:1.5rem 1rem 0.8rem;color:rgba(255,255,255,0.9);font-size:0.72rem;letter-spacing:0.06em;opacity:0;transition:opacity 0.3s}
 .gallery-item:hover .gallery-caption{opacity:1}
 .lightbox{display:none;position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:1rem}
 .lightbox.open{display:flex}
@@ -429,7 +429,7 @@ footer{background:var(--em);padding:3rem 0;text-align:center}
 <section id="beach">
   <div class="container">
     <div class="beach-grid">
-      <div class="beach-visual reveal" style="border-radius:6px;overflow:hidden;aspect-ratio:3/2;background:#0A3D2E">
+      <div class="beach-visual reveal" style="border-radius:6px;overflow:hidden;aspect-ratio:3/2;background:#3D6B14">
         <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/7d298951-a0fe-45df-b4de-462db82771e4.jpg" alt="リビング" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
       <div class="reveal">
@@ -680,7 +680,7 @@ document.addEventListener('keydown',function(e){var lb=document.getElementById('
           <div class="cal-legend">
             <span><span class="cal-legend-dot" style="background:var(--em)"></span><span data-lang="ja">選択中</span><span data-lang="en">Selected</span><span data-lang="fr">Sélectionné</span><span data-lang="zh">已选</span><span data-lang="ko">선택됨</span><span data-lang="es">Selec.</span></span>
             <span><span class="cal-legend-dot" style="background:var(--em-pale)"></span><span data-lang="ja">滞在中</span><span data-lang="en">In range</span><span data-lang="fr">En séjour</span><span data-lang="zh">在范围内</span><span data-lang="ko">기간 내</span><span data-lang="es">En rango</span></span>
-            <span><span class="cal-legend-dot" style="background:rgba(10,61,46,0.08)"></span><span data-lang="ja">予約済み</span><span data-lang="en">Booked</span><span data-lang="fr">Réservé</span><span data-lang="zh">已预订</span><span data-lang="ko">예약됨</span><span data-lang="es">Reservado</span></span>
+            <span><span class="cal-legend-dot" style="background:rgba(61,107,20,0.08)"></span><span data-lang="ja">予約済み</span><span data-lang="en">Booked</span><span data-lang="fr">Réservé</span><span data-lang="zh">已预订</span><span data-lang="ko">예약됨</span><span data-lang="es">Reservado</span></span>
           </div>
         </div>
         <div class="total-box" id="total-box-1" style="display:none">
@@ -1032,7 +1032,7 @@ function showSuccess(opts){
 }
 
 /* ════ NAV SCROLL ════ */
-window.addEventListener('scroll',function(){var nav=document.getElementById('main-nav');if(nav)nav.style.background=window.scrollY>80?'rgba(10,61,46,0.97)':'rgba(10,61,46,0.88)';});
+window.addEventListener('scroll',function(){var nav=document.getElementById('main-nav');if(nav)nav.style.background=window.scrollY>80?'rgba(61,107,20,0.97)':'rgba(61,107,20,0.88)';});
 
 /* ════ SCROLL REVEAL ════ */
 (function(){if(!('IntersectionObserver'in window))return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0});document.querySelectorAll('.reveal').forEach(function(el){if(el.getBoundingClientRect().top>window.innerHeight){el.classList.add('animate-pending');obs.observe(el);}});setTimeout(function(){document.querySelectorAll('.animate-pending').forEach(function(el){el.classList.add('visible');});},2000);})();
