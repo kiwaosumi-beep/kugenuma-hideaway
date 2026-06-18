@@ -1,4 +1,4 @@
-// api/contact.js — 鵠沼 Hideaway
+// api/contact.js — 藤沢鵠沼 Hideaway
 // Receives contact form submissions and sends email to host via Resend
 
 export default async function handler(req, res) {
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   const hostHtml = `
 <div style="font-family:'Helvetica Neue',sans-serif;max-width:560px;color:#1A1A14">
   <div style="background:#4A6E08;padding:24px 32px">
-    <h1 style="color:#fff;font-size:20px;font-weight:300;margin:0">鵠沼 <em style="color:#E0C88A">Hideaway</em></h1>
+    <h1 style="color:#fff;font-size:20px;font-weight:300;margin:0">藤沢鵠沼 <em style="color:#E0C88A">Hideaway</em></h1>
     <p style="color:rgba(255,255,255,0.6);font-size:11px;margin:4px 0 0">お問い合わせ通知</p>
   </div>
   <div style="padding:28px 32px;background:#f9f7f3">
@@ -43,14 +43,14 @@ export default async function handler(req, res) {
     </div>
   </div>
   <div style="background:#4A6E08;padding:14px 32px;text-align:center">
-    <p style="color:rgba(255,255,255,0.4);font-size:10px;margin:0">© 2025 鵠沼 Hideaway</p>
+    <p style="color:rgba(255,255,255,0.4);font-size:10px;margin:0">© 2025 藤沢鵠沼 Hideaway</p>
   </div>
 </div>`;
 
   const guestHtml = `
 <div style="font-family:'Helvetica Neue',sans-serif;max-width:560px;margin:0 auto;color:#1A1A14">
   <div style="background:#4A6E08;padding:24px 32px">
-    <h1 style="color:#fff;font-size:20px;font-weight:300;margin:0">鵠沼 <em style="color:#E0C88A">Hideaway</em></h1>
+    <h1 style="color:#fff;font-size:20px;font-weight:300;margin:0">藤沢鵠沼 <em style="color:#E0C88A">Hideaway</em></h1>
     <p style="color:rgba(255,255,255,0.6);font-size:11px;margin:4px 0 0">Kugenuma-Kaigan, Fujisawa, Kanagawa</p>
   </div>
   <div style="padding:28px 32px">
@@ -62,10 +62,10 @@ export default async function handler(req, res) {
     </div>
     <p style="color:#5A5C56;font-size:12px;line-height:1.8">ご不明な点がございましたら、このメールに直接ご返信ください。<br>
     引き続きよろしくお願いいたします。</p>
-    <p style="color:#4A6E08;font-size:13px;font-style:italic;margin-top:20px">— Kiwa, 鵠沼 Hideaway</p>
+    <p style="color:#4A6E08;font-size:13px;font-style:italic;margin-top:20px">— Kiwa, 藤沢鵠沼 Hideaway</p>
   </div>
   <div style="background:#4A6E08;padding:14px 32px;text-align:center">
-    <p style="color:rgba(255,255,255,0.4);font-size:10px;margin:0">© 2025 鵠沼 Hideaway · 神奈川県藤沢市鵠沼松が岡2-1-14</p>
+    <p style="color:rgba(255,255,255,0.4);font-size:10px;margin:0">© 2025 藤沢鵠沼 Hideaway · 神奈川県藤沢市鵠沼松が岡2-1-14</p>
   </div>
 </div>`;
 
@@ -75,15 +75,15 @@ export default async function handler(req, res) {
 
     const [hostResult, guestResult] = await Promise.allSettled([
       resend.emails.send({
-        from:    `鵠沼 Hideaway <${fromAddr}>`,
+        from:    `藤沢鵠沼 Hideaway <${fromAddr}>`,
         to:      hostEmail,
-        subject: `[お問い合わせ] 鵠沼 Hideaway — ${name}`,
+        subject: `[お問い合わせ] 藤沢鵠沼 Hideaway — ${name}`,
         html:    hostHtml,
       }),
       resend.emails.send({
-        from:    `鵠沼 Hideaway <${fromAddr}>`,
+        from:    `藤沢鵠沼 Hideaway <${fromAddr}>`,
         to:      email,
-        subject: `【お問い合わせ受付】鵠沼 Hideaway`,
+        subject: `【お問い合わせ受付】藤沢鵠沼 Hideaway`,
         html:    guestHtml,
       }),
     ]);
