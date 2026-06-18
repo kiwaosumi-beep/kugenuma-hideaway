@@ -3,255 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>鵠沼 Hideaway | 3LDK一棟貸し 駅徒歩3分 海近 | 湘南・鵠沼海岸</title>
+<title>鵠沼 Hideaway | 3LDK一棟貸し 駅徒歩3分 海近 最大8名 | 湘南・藤沢</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet"></noscript>
 <script src="https://js.stripe.com/v3/" async defer></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --em:        #4E7208;
-  --em-mid:    #668F0E;
-  --em-light:  #85B81A;
-  --em-pale:   #EAF5AA;
-  --gold:      #C8A96E;
-  --gold-lt:   #E0C88A;
-  --gold-pale: #F5EDD8;
-  --cream:     #F5F2EC;
-  --sand:      #EAE4D4;
-  --white:     #FFFFFF;
-  --ink:       #1A1A14;
-  --stone:     #5A5C56;
-  --border:    rgba(78,114,8,0.10);
-  --border-g:  rgba(200,169,110,0.30);
-  --serif:     'Cormorant Garamond','Noto Serif JP',serif;
-  --sans:      'Noto Sans JP',sans-serif;
-  --ease:      cubic-bezier(0.4,0,0.2,1);
+  --mc:      #4A6E08;
+  --mc-mid:  #5E8A10;
+  --mc-lt:   #7AAD1A;
+  --mc-pale: #E8F5AA;
+  --gold:    #C8A96E;
+  --gold-lt: #E0C88A;
+  --gold-pale:#F5EDD8;
+  --cream:   #F5F2EC;
+  --sand:    #EAE4D4;
+  --white:   #FFFFFF;
+  --ink:     #1A1A14;
+  --stone:   #5A5C56;
+  --border:  rgba(74,110,8,.10);
+  --border-g:rgba(200,169,110,.30);
+  --serif:   'Cormorant Garamond','Noto Serif JP',serif;
+  --sans:    'Noto Sans JP',sans-serif;
+  --ease:    cubic-bezier(.4,0,.2,1);
 }
 html{font-size:16px;scroll-behavior:smooth}
 body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity:0.4}
+  opacity:.4}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(78,114,8,0.88);backdrop-filter:blur(12px);transition:background 0.3s}
-.nav-logo{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--white);letter-spacing:0.08em;text-decoration:none}
-.nav-logo span{color:var(--gold-lt);font-style:italic}
-.nav-links{display:flex;align-items:center;gap:1.8rem}
-.nav-links a{color:rgba(255,255,255,0.82);font-size:0.78rem;text-decoration:none;letter-spacing:0.06em;transition:color 0.2s}
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;background:rgba(38,56,4,.92);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(200,169,110,.18);transition:background .4s}
+.nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:1px}
+.nav-brand-sub{font-size:.58rem;letter-spacing:.38em;color:var(--gold-lt);font-family:var(--serif)}
+.nav-brand-name{font-family:var(--serif);font-size:1.1rem;font-weight:300;letter-spacing:.22em;color:var(--white)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.68rem;letter-spacing:.18em;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--gold-lt)}
-.nav-book{background:var(--gold);color:var(--em)!important;padding:0.45rem 1.2rem;border-radius:2px;font-weight:400;letter-spacing:0.04em}
-.nav-book:hover{background:var(--gold-lt)!important}
-.lang-bar{display:flex;gap:0.4rem;padding:0 2.5rem;height:32px;align-items:center;background:var(--em);position:fixed;top:68px;left:0;right:0;z-index:499}
-.lang-btn{background:none;border:none;color:rgba(255,255,255,0.55);font-size:0.68rem;cursor:pointer;letter-spacing:0.05em;padding:0.1rem 0.4rem;border-radius:2px;transition:all 0.2s}
-.lang-btn.active,.lang-btn:hover{color:var(--gold-lt);background:rgba(255,255,255,0.08)}
+.nav-cta{padding:.5rem 1.5rem;background:var(--gold);color:var(--mc);font-size:.65rem;letter-spacing:.22em;font-weight:400;text-decoration:none;transition:background .25s,transform .2s;border:none;cursor:pointer;font-family:var(--sans)}
+.nav-cta:hover{background:var(--gold-lt);transform:translateY(-1px)}
 
-/* HERO */
-.hero{height:100vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url("https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/a2cc88ba-6a55-42f7-91c2-af61a017be35.jpg") center/cover no-repeat;filter:brightness(0.55)}
-.hero-wave{position:absolute;bottom:0;left:0;right:0;height:120px;overflow:hidden}
-.hero-wave svg{display:block;width:100%;height:100%}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(78,114,8,0.15) 0%,rgba(78,114,8,0.55) 100%)}
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 1.5rem;margin-top:4rem}
-.hero-badge{display:inline-block;border:1px solid var(--gold);color:var(--gold-lt);font-size:0.68rem;letter-spacing:0.2em;padding:0.35rem 1.2rem;margin-bottom:1.5rem;border-radius:1px}
-.hero-title{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:0.8rem}
-.hero-title em{color:var(--gold-lt);font-style:italic}
-.hero-sub{color:rgba(255,255,255,0.78);font-size:clamp(0.85rem,2vw,1rem);letter-spacing:0.08em;margin-bottom:2.5rem}
-.hero-cta{display:inline-block;background:var(--gold);color:var(--em);padding:0.9rem 2.8rem;font-size:0.88rem;letter-spacing:0.1em;border:none;cursor:pointer;border-radius:2px;transition:all 0.3s;font-family:var(--sans)}
-.hero-cta:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,169,110,0.3)}
-.hero-stats{display:flex;gap:2.5rem;justify-content:center;margin-top:3rem;flex-wrap:wrap}
-.hero-stat{text-align:center}
-.hero-stat-num{font-family:var(--serif);font-size:1.8rem;color:var(--gold-lt);font-weight:300}
-.hero-stat-label{font-size:0.68rem;color:rgba(255,255,255,0.6);letter-spacing:0.1em}
+/* ═══ LANG BAR ═══ */
+.lang-bar{position:fixed;top:68px;left:0;right:0;z-index:499;height:30px;background:var(--mc);display:flex;align-items:center;padding:0 3rem;gap:.4rem}
+.lang-btn{background:none;border:none;color:rgba(255,255,255,.5);font-size:.68rem;cursor:pointer;letter-spacing:.05em;padding:.1rem .5rem;border-radius:2px;transition:all .2s}
+.lang-btn.active,.lang-btn:hover{color:var(--gold-lt);background:rgba(255,255,255,.1)}
 
-/* SECTIONS */
-section{padding:6rem 0}
-.container{max-width:1100px;margin:0 auto;padding:0 2rem}
-.section-label{font-size:0.68rem;letter-spacing:0.25em;color:var(--gold);text-transform:uppercase;margin-bottom:0.8rem}
-.section-title{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);font-weight:300;color:var(--em);line-height:1.25;margin-bottom:1.5rem}
-.section-title em{font-style:italic;color:var(--em-mid)}
-.divider{width:48px;height:1px;background:var(--gold);margin:1.5rem 0}
+/* ═══ HERO ═══ */
+.hero{min-height:100vh;position:relative;overflow:hidden;display:grid;grid-template-columns:42fr 58fr;padding-top:98px}
+.hero-left{background:var(--mc);position:relative;display:flex;flex-direction:column;justify-content:center;padding:5rem 4.5rem 5rem 5rem;overflow:hidden;z-index:2}
+.hero-left::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle at 25px 25px,transparent 20px,rgba(200,169,110,.04) 20px,rgba(200,169,110,.04) 22px,transparent 22px),
+    radial-gradient(circle at 75px 25px,transparent 20px,rgba(200,169,110,.04) 20px,rgba(200,169,110,.04) 22px,transparent 22px),
+    radial-gradient(circle at 50px 50px,transparent 20px,rgba(200,169,110,.04) 20px,rgba(200,169,110,.04) 22px,transparent 22px);
+  background-size:50px 50px;pointer-events:none}
+.hero-left::after{content:'';position:absolute;right:0;top:15%;bottom:15%;width:1px;background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:.4}
+.hero-kamon{width:48px;height:48px;margin-bottom:2.5rem;opacity:.6}
+.hero-property-name{margin-bottom:1.8rem;line-height:1}
+.hero-property-en{font-family:var(--sans);font-size:clamp(.55rem,.9vw,.72rem);letter-spacing:.42em;color:var(--gold);margin-bottom:.5rem;font-weight:300}
+.hero-property-ja{font-family:var(--serif);font-size:clamp(3.2rem,6vw,6.8rem);font-weight:200;color:var(--white);letter-spacing:.18em;line-height:.95;margin-bottom:.15em}
+.hero-property-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,3rem);font-weight:300;font-style:italic;color:var(--gold-lt);letter-spacing:.22em}
+.hero-label{font-size:.6rem;letter-spacing:.35em;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem}
+.hero-label::before{content:'';width:24px;height:1px;background:var(--gold)}
+.hero-title{font-family:var(--serif);font-size:clamp(2.6rem,4vw,4.2rem);font-weight:300;line-height:1.1;color:var(--white);margin-bottom:.8rem;letter-spacing:.03em}
+.hero-title .gold{color:var(--gold-lt);font-style:italic}
+.hero-tagline{font-family:var(--serif);font-style:italic;font-size:1rem;color:rgba(255,255,255,.45);margin-bottom:2.8rem;letter-spacing:.08em}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:3rem}
+.hero-chip{font-size:.62rem;letter-spacing:.12em;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.14);padding:.28rem .8rem;transition:border-color .2s,color .2s}
+.hero-chip:hover{border-color:var(--gold);color:var(--gold-lt)}
+.hero-btns{display:flex;align-items:center;gap:2rem}
+.btn-primary{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 2.4rem;background:var(--gold);color:var(--mc);font-size:.7rem;letter-spacing:.22em;font-weight:400;text-decoration:none;transition:background .25s,transform .2s,box-shadow .25s;border:none;cursor:pointer;font-family:var(--sans)}
+.btn-primary:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 12px 32px rgba(200,169,110,.3)}
+.btn-ghost{font-size:.68rem;letter-spacing:.14em;color:rgba(255,255,255,.55);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.22);padding-bottom:2px;transition:color .2s}
+.btn-ghost:hover{color:var(--white)}
+.hero-right{position:relative;overflow:hidden}
+.hero-img-main{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 8s var(--ease)}
+.hero:hover .hero-img-main{transform:scale(1.04)}
+.hero-right::before{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to right,var(--mc) 0%,rgba(74,110,8,.08) 18%,transparent 35%),
+             linear-gradient(to top,rgba(74,110,8,.3) 0%,transparent 28%)}
+.hero-float{position:absolute;bottom:2.5rem;right:2.5rem;z-index:2;background:rgba(38,56,4,.82);border:1px solid var(--border-g);backdrop-filter:blur(12px);padding:1.2rem 1.6rem;min-width:200px}
+.hero-float-label{font-size:.58rem;letter-spacing:.22em;color:var(--gold);margin-bottom:.3rem}
+.hero-float-val{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--white);line-height:1}
+.hero-float-sub{font-size:.65rem;color:rgba(255,255,255,.4);margin-top:.2rem}
 
-/* FEATURES */
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:3rem}
-.feature-card{background:var(--white);padding:2rem;border-radius:4px;border:1px solid var(--border);transition:all 0.3s}
-.feature-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(78,114,8,0.08)}
-.feature-icon{width:48px;height:48px;background:var(--em-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.4rem}
-.feature-name{font-family:var(--serif);font-size:1.1rem;color:var(--em);margin-bottom:0.5rem}
-.feature-desc{font-size:0.82rem;color:var(--stone);line-height:1.7}
+/* ═══ BOOKING STRIP ═══ */
+.booking-strip{background:var(--mc-mid);border-top:2px solid var(--gold);border-bottom:1px solid rgba(200,169,110,.15);padding:1.6rem 3rem;display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:end;gap:0}
+.bk-field{padding-right:2.5rem;border-right:1px solid rgba(255,255,255,.08);margin-right:2.5rem}
+.bk-field:last-of-type{border-right:none;margin-right:0;padding-right:0}
+.bk-label{display:block;font-size:.58rem;letter-spacing:.28em;color:var(--gold);margin-bottom:.45rem}
+.bk-input{background:none;border:none;border-bottom:1px solid rgba(255,255,255,.18);color:var(--white);font-family:var(--serif);font-size:1rem;padding:.35rem 0;width:100%;outline:none;cursor:pointer;transition:border-color .2s}
+.bk-input::-webkit-calendar-picker-indicator{filter:invert(1) opacity(.45)}
+.bk-input:focus{border-bottom-color:var(--gold)}
+.bk-btn{padding:.8rem 2rem;background:var(--gold);color:var(--mc);font-size:.68rem;letter-spacing:.2em;border:none;cursor:pointer;white-space:nowrap;transition:background .25s;font-family:var(--sans)}
+.bk-btn:hover{background:var(--gold-lt)}
 
-/* SPECS */
-.specs-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.specs-list{list-style:none}
-.specs-list li{display:flex;justify-content:space-between;padding:0.85rem 0;border-bottom:1px solid var(--border);font-size:0.85rem}
-.specs-list li:last-child{border-bottom:none}
-.spec-key{color:var(--stone)}
-.spec-val{color:var(--em);font-weight:400;text-align:right}
-.specs-img{border-radius:6px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(135deg,var(--em-pale),var(--sand));display:flex;align-items:center;justify-content:center}
-.specs-img-inner{text-align:center;padding:2rem}
-.specs-img-inner .emoji{font-size:4rem;display:block;margin-bottom:1rem}
-.specs-img-inner p{color:var(--stone);font-size:0.82rem}
+/* ═══ SEC BASE ═══ */
+.sec{padding:7rem 5rem}
+.sec-label{font-size:.58rem;letter-spacing:.35em;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem}
+.sec-label::before{content:'';width:20px;height:1px;background:var(--gold)}
+.sec-title{font-family:var(--serif);font-size:clamp(1.9rem,2.8vw,3rem);font-weight:300;color:var(--mc);line-height:1.2;margin-bottom:1.4rem;letter-spacing:.03em}
+.sec-title em{font-style:italic;color:var(--mc-lt)}
+.sec-body{font-size:.82rem;color:var(--stone);line-height:1.95;max-width:46ch}
+.gold-bar{width:40px;height:2px;background:var(--gold);margin:1.5rem 0}
 
-/* AMENITIES */
-.amenities-bg{background:var(--em);padding:5rem 0}
-.amenities-bg .section-label{color:var(--gold-lt)}
-.amenities-bg .section-title{color:var(--white)}
-.amenities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem;margin-top:2.5rem}
-.amenity-item{display:flex;align-items:center;gap:0.75rem;padding:0.9rem 1rem;background:rgba(255,255,255,0.07);border-radius:4px;border:1px solid rgba(255,255,255,0.1)}
-.amenity-item span:first-child{font-size:1.1rem}
-.amenity-item span:last-child{color:rgba(255,255,255,0.82);font-size:0.8rem}
+/* ═══ ROOM FEATURE ═══ */
+.room-feature{display:grid;grid-template-columns:58fr 42fr;min-height:640px;overflow:hidden}
+.room-feature.reverse{grid-template-columns:42fr 58fr}
+.room-feature-img{position:relative;overflow:hidden}
+.room-feature-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s var(--ease)}
+.room-feature:hover .room-feature-img img{transform:scale(1.04)}
+.room-feature-img::after{content:'';position:absolute;bottom:0;right:0;width:55%;height:45%;background:var(--mc);clip-path:polygon(100% 100%,0 100%,100% 0);opacity:.65}
+.room-feature.reverse .room-feature-img::after{right:auto;left:0;clip-path:polygon(0 100%,100% 100%,0 0)}
+.room-feature-content{background:var(--mc);padding:5.5rem 4.5rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.room-feature-content::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 30px,rgba(255,255,255,.012) 30px,rgba(255,255,255,.012) 31px)}
+.room-feature-content .sec-label{color:var(--gold)}
+.room-feature-content .sec-title{color:var(--white)}
+.room-feature-content .sec-body{color:rgba(255,255,255,.58)}
+.room-specs{list-style:none;margin-top:2rem}
+.room-specs li{display:flex;align-items:center;gap:1rem;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.8rem;color:rgba(255,255,255,.65)}
+.room-specs li::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.room-specs li strong{color:var(--white);font-weight:400}
 
-/* BEACH */
-.beach-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.beach-visual{border-radius:6px;overflow:hidden;background:linear-gradient(135deg,#668F0E,#4E7208);aspect-ratio:3/2;display:flex;align-items:center;justify-content:center;position:relative}
-.beach-visual-inner{text-align:center;color:rgba(255,255,255,0.9)}
-.beach-visual-inner .big-emoji{font-size:5rem;display:block;margin-bottom:0.5rem}
-.beach-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem}
-.beach-tag{background:var(--em-pale);color:var(--em);font-size:0.75rem;padding:0.4rem 1rem;border-radius:20px;letter-spacing:0.04em}
+/* ═══ GALLERY ═══ */
+.gallery-sec{padding:0;overflow:hidden}
+.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:320px 320px;gap:3px;background:var(--mc)}
+.g-cell{overflow:hidden;position:relative;cursor:zoom-in}
+.g-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.g-cell:hover img{transform:scale(1.06)}
+.g-cell:first-child{grid-row:1/3}
+.g-cell.mc-block{background:var(--mc);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;cursor:default}
+.g-cell.mc-block .gc-num{font-family:var(--serif);font-size:3.5rem;color:var(--gold);font-weight:300;line-height:1}
+.g-cell.mc-block .gc-lbl{font-size:.68rem;letter-spacing:.22em;color:rgba(255,255,255,.4)}
+.g-caption{position:absolute;bottom:0;left:0;right:0;padding:.8rem 1rem;background:linear-gradient(to top,rgba(38,56,4,.75),transparent);font-size:.65rem;letter-spacing:.15em;color:rgba(255,255,255,.7);opacity:0;transition:opacity .3s}
+.g-cell:hover .g-caption{opacity:1}
 
-/* REVIEWS */
-.reviews-bg{background:var(--sand)}
-.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.5rem}
-.review-card{background:var(--white);padding:1.8rem;border-radius:4px;border:1px solid var(--border)}
-.review-stars{color:var(--gold);font-size:0.85rem;margin-bottom:0.8rem}
-.review-text{font-size:0.83rem;color:var(--stone);line-height:1.8;margin-bottom:1rem;font-style:italic}
-.review-author{font-size:0.75rem;color:var(--em);font-weight:400}
-.review-rating-box{background:var(--em);color:var(--white);padding:2rem;border-radius:4px;text-align:center}
-.review-rating-num{font-family:var(--serif);font-size:4rem;font-weight:300;color:var(--gold-lt);line-height:1}
-.review-rating-label{font-size:0.75rem;color:rgba(255,255,255,0.7);margin-top:0.5rem;letter-spacing:0.1em}
+/* ═══ AREA SECTION ═══ */
+.area-sec{background:var(--mc);display:grid;grid-template-columns:42fr 58fr;min-height:560px;overflow:hidden}
+.area-content{padding:6rem 4.5rem;display:flex;flex-direction:column;justify-content:center;position:relative}
+.area-content::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,169,110,.3),transparent)}
+.area-content .sec-label{color:var(--gold)}
+.area-content .sec-title{color:var(--white)}
+.area-content .sec-body{color:rgba(255,255,255,.55);max-width:38ch}
+.area-icons{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+.area-icon{padding:1.5rem;border:1px solid rgba(200,169,110,.15);transition:border-color .3s,background .3s}
+.area-icon:hover{border-color:var(--gold);background:rgba(200,169,110,.06)}
+.area-icon-sym{font-family:var(--serif);font-size:1.8rem;color:var(--gold);margin-bottom:.6rem;line-height:1}
+.area-icon-title{font-size:.72rem;color:var(--white);margin-bottom:.25rem;letter-spacing:.08em}
+.area-icon-body{font-size:.68rem;color:rgba(255,255,255,.42);line-height:1.65}
+.area-photos{display:grid;grid-template-rows:1fr 1fr;gap:3px;overflow:hidden}
+.area-photo{overflow:hidden}
+.area-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s var(--ease)}
+.area-photo:hover img{transform:scale(1.05)}
 
-/* HOST */
-.host-wrap{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;max-width:680px}
-.host-avatar{width:88px;height:88px;background:var(--em-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0}
-.host-name{font-family:var(--serif);font-size:1.4rem;color:var(--em);margin-bottom:0.3rem}
-.host-title{font-size:0.75rem;color:var(--stone);letter-spacing:0.1em;margin-bottom:1rem}
-.host-bio{font-size:0.85rem;color:var(--stone);line-height:1.85}
+/* ═══ AMENITIES ═══ */
+.amenities-sec{background:var(--cream);padding:7rem 5rem}
+.amenities-sec .sec-title{color:var(--mc)}
+.am-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:4rem;border:1px solid var(--border)}
+.am-item{background:var(--white);padding:2rem 1.6rem;transition:background .3s;position:relative;overflow:hidden}
+.am-item::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.am-item:hover{background:var(--cream)}
+.am-item:hover::before{transform:scaleX(1)}
+.am-icon{font-size:1.5rem;margin-bottom:.8rem;line-height:1}
+.am-name{font-size:.75rem;color:var(--ink);margin-bottom:.3rem;letter-spacing:.06em}
+.am-detail{font-size:.67rem;color:var(--stone);line-height:1.65}
+.am-item.feat{background:var(--mc);border:none}
+.am-item.feat::before{display:none}
+.am-item.feat .am-icon{color:var(--gold)}
+.am-item.feat .am-name{color:var(--white)}
+.am-item.feat .am-detail{color:rgba(255,255,255,.45)}
 
-/* ACCESS */
-.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.access-list{list-style:none}
-.access-list li{display:flex;align-items:flex-start;gap:1rem;padding:0.9rem 0;border-bottom:1px solid var(--border);font-size:0.85rem}
-.access-list li:last-child{border-bottom:none}
-.access-icon{color:var(--gold);font-size:1rem;flex-shrink:0;width:20px}
-.map-placeholder{background:var(--em-pale);border-radius:6px;height:280px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
-.map-placeholder-inner{text-align:center;color:var(--stone)}
-.map-placeholder-inner .map-emoji{font-size:3rem;display:block;margin-bottom:0.5rem}
+/* ═══ REVIEWS ═══ */
+.reviews-sec{background:var(--mc);padding:7rem 5rem}
+.reviews-sec .sec-label{color:var(--gold)}
+.reviews-sec .sec-title{color:var(--white)}
+.score-row{display:grid;grid-template-columns:180px 1fr;gap:4rem;align-items:center;margin-bottom:4.5rem}
+.score-num{font-family:var(--serif);font-size:5.5rem;font-weight:300;color:var(--gold);line-height:1;text-align:center}
+.score-stars{color:var(--gold);font-size:.9rem;letter-spacing:3px;margin:.3rem 0;text-align:center}
+.score-cnt{font-size:.65rem;color:rgba(255,255,255,.4);letter-spacing:.1em;text-align:center}
+.bars{display:flex;flex-direction:column;gap:.9rem}
+.bar-row{display:flex;align-items:center;gap:1rem}
+.bar-lbl{font-size:.7rem;color:rgba(255,255,255,.5);min-width:110px;text-align:right}
+.bar-track{flex:1;height:2px;background:rgba(255,255,255,.1);position:relative}
+.bar-fill{position:absolute;left:0;top:0;bottom:0;background:var(--gold)}
+.bar-score{font-family:var(--serif);font-size:.9rem;color:var(--gold-lt);min-width:28px}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.rv-card{border-top:2px solid var(--gold);padding:2rem;background:rgba(255,255,255,.03);transition:background .3s}
+.rv-card:hover{background:rgba(255,255,255,.06)}
+.rv-stars{color:var(--gold);font-size:.68rem;letter-spacing:2px;margin-bottom:1rem}
+.rv-text{font-family:var(--serif);font-size:.95rem;font-style:italic;color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:1.2rem}
+.rv-author{font-size:.65rem;letter-spacing:.15em;color:rgba(255,255,255,.35)}
 
-/* BOOKING CTA */
-.cta-section{background:linear-gradient(135deg,var(--em) 0%,var(--em-mid) 100%);padding:5rem 0;text-align:center}
-.cta-title{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--white);margin-bottom:1rem;font-weight:300}
-.cta-sub{color:rgba(255,255,255,0.72);font-size:0.88rem;margin-bottom:2.5rem;letter-spacing:0.05em}
-.cta-btn{display:inline-block;background:var(--gold);color:var(--em);padding:1rem 3rem;font-size:0.9rem;letter-spacing:0.1em;border:none;cursor:pointer;border-radius:2px;transition:all 0.3s;font-family:var(--sans)}
-.cta-btn:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 10px 28px rgba(200,169,110,0.4)}
+/* ═══ CHECKIN CARDS ═══ */
+.ci-sec{background:var(--cream);padding:7rem 5rem}
+.ci-sec .sec-title{color:var(--mc)}
+.ci-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3.5rem}
+.ci-card{border-top:3px solid var(--mc);background:var(--white);padding:2rem;text-align:center;transition:transform .3s,box-shadow .3s}
+.ci-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(74,110,8,.1)}
+.ci-icon{font-size:1.8rem;margin-bottom:.8rem;line-height:1}
+.ci-label{font-size:.58rem;letter-spacing:.25em;color:var(--gold);margin-bottom:.4rem}
+.ci-val{font-family:var(--serif);font-size:1.5rem;color:var(--mc);margin-bottom:.3rem}
+.ci-note{font-size:.68rem;color:var(--stone);line-height:1.7}
 
-/* FOOTER */
-footer{background:var(--em);padding:3rem 0;text-align:center}
-.footer-logo{font-family:var(--serif);font-size:1.2rem;color:var(--white);margin-bottom:0.5rem}
-.footer-logo em{color:var(--gold-lt);font-style:italic}
-.footer-sub{font-size:0.75rem;color:rgba(255,255,255,0.45);letter-spacing:0.08em}
+/* ═══ ACCESS ═══ */
+.access-wrap{display:grid;grid-template-columns:58fr 42fr;min-height:520px;padding:0;overflow:hidden}
+.access-map{position:relative;overflow:hidden}
+.access-map iframe{width:100%;height:100%;border:0;display:block;filter:saturate(1.1) contrast(1.05)}
+.access-info{background:var(--mc);padding:5rem 4.5rem;display:flex;flex-direction:column;justify-content:center}
+.access-info .sec-label{color:var(--gold)}
+.access-info .sec-title{color:var(--white)}
+.ac-list{list-style:none;margin-top:2.5rem}
+.ac-list li{display:flex;gap:1.8rem;align-items:flex-start;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.ac-type{font-size:.6rem;letter-spacing:.22em;color:var(--gold);min-width:65px;padding-top:2px;flex-shrink:0}
+.ac-val{font-size:.8rem;color:rgba(255,255,255,.6);line-height:1.75}
+.ac-val strong{color:var(--white);font-weight:400}
 
-/* MODAL */
-.modal-bg{display:none;position:fixed;inset:0;z-index:900;background:rgba(78,114,8,0.6);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:1rem}
+/* ═══ FOOTER ═══ */
+footer{background:var(--mc-mid);padding:4rem 5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;border-top:1px solid rgba(200,169,110,.15)}
+.footer-brand{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--white);letter-spacing:.2em}
+.footer-brand em{color:var(--gold-lt);font-style:italic}
+.footer-sub{font-size:.7rem;color:rgba(255,255,255,.35);margin-top:.3rem;letter-spacing:.08em}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:.65rem;letter-spacing:.12em;color:rgba(255,255,255,.4);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold-lt)}
+
+/* ═══ MODAL ═══ */
+.modal-bg{display:none;position:fixed;inset:0;z-index:600;background:rgba(20,35,4,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1.5rem}
 .modal-bg.open{display:flex}
-.modal{background:var(--white);border-radius:8px;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;position:relative}
-.modal-header{background:var(--em);padding:1.4rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
-.modal-title{font-family:var(--serif);color:var(--white);font-size:1.1rem;font-weight:300}
-.modal-close{background:none;border:none;color:rgba(255,255,255,0.7);font-size:1.4rem;cursor:pointer;padding:0.2rem 0.4rem;line-height:1}
-.modal-close:hover{color:var(--white)}
-.modal-steps{display:flex;gap:0;padding:0;background:var(--em-pale)}
-.modal-step{flex:1;padding:0.7rem 0;text-align:center;font-size:0.72rem;color:var(--stone);letter-spacing:0.05em;border-bottom:2px solid transparent;transition:all 0.2s}
-.modal-step.active{color:var(--em);border-bottom-color:var(--gold);font-weight:400}
-.modal-body{padding:1.8rem 2rem}
+.modal{background:var(--cream);width:100%;max-width:700px;max-height:94vh;overflow-y:auto;box-shadow:0 40px 80px rgba(20,35,4,.4)}
+.modal-head{background:var(--mc);padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:1}
+.modal-title{font-family:var(--serif);font-size:1.25rem;font-weight:300;color:var(--white);letter-spacing:.1em}
+.modal-x{background:none;border:none;color:rgba(255,255,255,.45);font-size:1.5rem;cursor:pointer;line-height:1}
+.modal-x:hover{color:var(--gold-lt)}
+.modal-steps{display:flex;background:var(--mc-mid);border-bottom:1px solid rgba(200,169,110,.12)}
+.modal-step{flex:1;padding:.8rem 1rem;text-align:center;font-size:.62rem;letter-spacing:.2em;color:rgba(255,255,255,.35);border-bottom:2px solid transparent;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.modal-step.active{color:var(--gold);border-bottom-color:var(--gold)}
+.modal-step.done{color:rgba(255,255,255,.5);border-bottom-color:rgba(200,169,110,.3)}
+.step-num{width:20px;height:20px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.62rem}
+.modal-step.done .step-num{background:var(--gold);border-color:var(--gold);color:var(--mc)}
+.modal-body{padding:2rem 2.5rem}
+.modal-sec-title{font-size:.6rem;letter-spacing:.28em;color:var(--gold);margin-bottom:1.2rem;padding-bottom:.5rem;border-bottom:1px solid var(--border-g)}
 .step-panel{display:none}.step-panel.active{display:block}
-.modal-section{margin-bottom:1.8rem}
-.modal-sec-title{font-size:0.72rem;letter-spacing:0.15em;color:var(--stone);text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border)}
-.form-group{margin-bottom:1rem}
-.form-label{display:block;font-size:0.75rem;color:var(--stone);margin-bottom:0.4rem;letter-spacing:0.05em}
-.form-ctrl{width:100%;padding:0.65rem 0.9rem;border:1px solid var(--border);border-radius:3px;font-size:0.85rem;font-family:var(--sans);color:var(--ink);background:var(--white);transition:border-color 0.2s}
-.form-ctrl:focus{outline:none;border-color:var(--em-mid)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.total-box{display:flex;justify-content:space-between;align-items:flex-end;background:var(--em-pale);padding:1rem 1.2rem;border-radius:4px;margin:1.5rem 0}
-.total-breakdown{font-size:0.75rem;color:var(--stone)}
-.total-amount{font-family:var(--serif);font-size:1.6rem;color:var(--em)}
-.total-nights{font-size:0.72rem;color:var(--stone)}
-.btn-next{width:100%;background:var(--em);color:var(--white);border:none;padding:0.85rem;font-size:0.85rem;cursor:pointer;border-radius:3px;letter-spacing:0.06em;transition:background 0.2s;font-family:var(--sans);display:flex;align-items:center;justify-content:center;gap:0.5rem}
-.btn-next:hover{background:var(--em-mid)}
-.btn-back{background:none;border:1px solid var(--border);color:var(--stone);padding:0.6rem 1.2rem;font-size:0.78rem;cursor:pointer;border-radius:3px;margin-top:0.8rem;font-family:var(--sans)}
-.btn-back:hover{border-color:var(--em);color:var(--em)}
-.btn-pay{width:100%;background:var(--em);color:var(--white);border:none;padding:0.9rem;font-size:0.85rem;cursor:pointer;border-radius:3px;letter-spacing:0.06em;transition:all 0.2s;font-family:var(--sans);display:flex;align-items:center;justify-content:center;gap:0.6rem;margin-top:1rem}
-.btn-pay:hover{background:var(--em-mid)}
-.btn-pay:disabled{opacity:0.6;cursor:not-allowed}
-.stripe-element-wrap{border:1px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;background:var(--white);transition:border-color 0.2s}
-.stripe-element-wrap.StripeElement--focus{border-color:var(--em-mid)}
-.stripe-element-wrap.StripeElement--invalid{border-color:#c0392b}
-#card-errors{color:#c0392b;font-size:0.78rem;margin-top:0.4rem;min-height:1rem}
-.stripe-badge{display:flex;align-items:center;gap:0.5rem;justify-content:center;margin-top:1rem;color:var(--stone);font-size:0.72rem}
+.form-group{margin-bottom:1rem}
+.form-label{display:block;font-size:.68rem;color:var(--stone);margin-bottom:.4rem;letter-spacing:.05em}
+.form-ctrl{width:100%;padding:.72rem 1rem;border:1px solid var(--border);background:var(--white);color:var(--ink);font-family:var(--sans);font-size:.83rem;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.form-ctrl:focus{border-color:var(--mc)}
+.cal-wrap{background:var(--white);border:1px solid var(--border);padding:1.5rem;margin-bottom:1rem}
+.cal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem}
+.cal-month-lbl{font-family:var(--serif);font-size:1rem;color:var(--mc)}
+.cal-nav-btn{background:none;border:1px solid var(--border);width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--mc);transition:background .2s}
+.cal-nav-btn:hover{background:var(--mc-pale)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-dow{text-align:center;font-size:.6rem;letter-spacing:.15em;color:var(--stone);padding:.3rem 0}
+.cal-day{text-align:center;padding:.45rem 0;font-size:.78rem;cursor:pointer;transition:background .15s;border-radius:2px}
+.cal-day:hover:not(.cal-booked):not(.cal-past){background:var(--mc-pale)}
+.cal-day.cal-today{font-weight:400;color:var(--mc)}
+.cal-day.cal-checkin,.cal-day.cal-checkout{background:var(--mc)!important;color:var(--white)}
+.cal-day.cal-inrange{background:var(--mc-pale);color:var(--mc)}
+.cal-day.cal-booked{color:rgba(0,0,0,.18);cursor:not-allowed;text-decoration:line-through}
+.cal-day.cal-past{color:rgba(0,0,0,.2);cursor:not-allowed}
+.cal-legend{display:flex;gap:1.5rem;margin-top:1rem;justify-content:flex-end}
+.cal-legend-item{display:flex;align-items:center;gap:.4rem;font-size:.6rem;color:var(--stone)}
+.cal-legend-dot{width:10px;height:10px;border-radius:1px}
+.total-box{background:var(--mc);padding:1.5rem 2rem;margin:1.5rem 0}
+.total-box-top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.5rem}
+.total-label{font-size:.6rem;letter-spacing:.22em;color:var(--gold)}
+.total-amount{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--white);line-height:1}
+.total-nights{font-size:.7rem;color:rgba(255,255,255,.5)}
+.total-breakdown{font-size:.72rem;color:rgba(255,255,255,.5);padding-top:.5rem;border-top:1px solid rgba(255,255,255,.1);margin-top:.5rem}
+.stripe-wrap{border:1px solid var(--border);background:var(--white);padding:.9rem 1rem;transition:border-color .2s}
+.stripe-wrap.StripeElement--focus{border-color:var(--mc)}
+.stripe-wrap.StripeElement--invalid{border-color:#c0392b}
+#card-errors{font-size:.72rem;color:#c0392b;margin-top:.5rem;min-height:1.2em}
+.btn-pay{width:100%;padding:1rem;background:var(--mc);color:var(--white);border:none;font-size:.78rem;letter-spacing:.18em;cursor:pointer;transition:background .2s;font-family:var(--sans);display:flex;align-items:center;justify-content:center;gap:.6rem;margin-top:1rem}
+.btn-pay:hover{background:var(--mc-mid)}
+.btn-pay:disabled{opacity:.6;cursor:not-allowed}
+.btn-next{width:100%;padding:.85rem;background:var(--mc);color:var(--white);border:none;font-size:.75rem;letter-spacing:.15em;cursor:pointer;transition:background .2s;font-family:var(--sans)}
+.btn-next:hover{background:var(--mc-mid)}
+.btn-back{background:none;border:1px solid var(--border);color:var(--stone);padding:.55rem 1.2rem;font-size:.72rem;cursor:pointer;margin-top:.8rem;font-family:var(--sans)}
+.btn-back:hover{border-color:var(--mc);color:var(--mc)}
+.stripe-badge{display:flex;align-items:center;justify-content:center;gap:.5rem;margin-top:1rem;font-size:.68rem;color:var(--stone)}
+.booking-summary{background:var(--mc-pale);padding:1.2rem 1.5rem;margin-bottom:1.5rem;border-left:3px solid var(--gold);font-size:.8rem;color:var(--stone);line-height:2}
+.success-screen{display:none;text-align:center;padding:3.5rem 2rem}
+.success-icon{width:64px;height:64px;background:var(--mc);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem}
+.success-title{font-family:var(--serif);font-size:1.8rem;color:var(--mc);margin-bottom:.8rem}
+.success-body{font-size:.82rem;color:var(--stone);line-height:1.85;max-width:36ch;margin:0 auto 2rem}
 
-/* CALENDAR */
-.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
-.cal-month{font-family:var(--serif);font-size:1rem;color:var(--em)}
-.cal-btn{background:none;border:1px solid var(--border);color:var(--em);width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem}
-.cal-btn:hover{background:var(--em-pale)}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-size:0.75rem}
-.cal-dow{text-align:center;color:var(--stone);padding:0.3rem 0;font-size:0.7rem}
-.cal-day{text-align:center;padding:0.45rem 0;border-radius:3px;cursor:pointer;transition:all 0.15s;position:relative}
-.cal-day:hover:not(.cal-disabled):not(.cal-booked){background:var(--em-pale);color:var(--em)}
-.cal-day.cal-today{font-weight:400;color:var(--em-mid)}
-.cal-day.cal-disabled{color:var(--em-pale);cursor:not-allowed;pointer-events:none}
-.cal-day.cal-booked{background:rgba(78,114,8,0.08);color:var(--em-pale);cursor:not-allowed;text-decoration:line-through}
-.cal-day.cal-checkin{background:var(--em);color:var(--white);border-radius:3px 0 0 3px}
-.cal-day.cal-checkout{background:var(--em);color:var(--white);border-radius:0 3px 3px 0}
-.cal-day.cal-inrange{background:var(--em-pale);color:var(--em);border-radius:0}
-.cal-legend{display:flex;gap:1.2rem;margin-top:1rem;font-size:0.7rem;color:var(--stone);flex-wrap:wrap}
-.cal-legend span{display:flex;align-items:center;gap:0.4rem}
-.cal-legend-dot{width:10px;height:10px;border-radius:2px}
-.modal-btn-row{display:flex;flex-direction:column;gap:0.5rem}
-
-/* SUCCESS */
-.success-screen{text-align:center;padding:3rem 2rem;display:none}
-.success-icon{width:64px;height:64px;background:var(--em);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem}
-.success-title{font-family:var(--serif);font-size:1.8rem;color:var(--em);margin-bottom:0.8rem}
-.success-body{font-size:0.82rem;color:var(--stone);line-height:1.8;max-width:36ch;margin:0 auto 2rem}
-
-
-/* GALLERY */
-.gallery-section{background:var(--white);padding:5rem 0}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2rem}
-.gallery-grid .main-photo{grid-column:span 2;grid-row:span 2}
-.gallery-item{position:relative;overflow:hidden;cursor:pointer;background:#4E7208}
-.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(78,114,8,0);transition:background 0.3s}
-.gallery-item:hover::after{background:rgba(78,114,8,0.25)}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/2;transition:transform 0.5s}
-.gallery-item.main-photo img{aspect-ratio:auto}
-.gallery-item:hover img{transform:scale(1.04)}
-.gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(78,114,8,0.75));padding:1.5rem 1rem 0.8rem;color:rgba(255,255,255,0.9);font-size:0.72rem;letter-spacing:0.06em;opacity:0;transition:opacity 0.3s}
-.gallery-item:hover .gallery-caption{opacity:1}
-.lightbox{display:none;position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.92);align-items:center;justify-content:center;padding:1rem}
-.lightbox.open{display:flex}
-.lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px}
-.lightbox-close{position:absolute;top:1rem;right:1.5rem;color:#fff;font-size:2rem;cursor:pointer;background:none;border:none;line-height:1}
-.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:2rem;padding:0.5rem 1rem;cursor:pointer;border-radius:3px;transition:background 0.2s}
-.lightbox-prev:hover,.lightbox-next:hover{background:rgba(255,255,255,0.3)}
-.lightbox-prev{left:1rem}.lightbox-next{right:1rem}
-@media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid .main-photo{grid-column:span 2}}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s var(--ease),transform 0.6s var(--ease)}
+/* ═══ REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.visible{opacity:1;transform:none}
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .specs-wrap,.beach-grid,.access-grid{grid-template-columns:1fr}
-  .hero-stats{gap:1.5rem}
-  .modal-body{padding:1.2rem 1.2rem}
-  .form-row{grid-template-columns:1fr}
-  .host-wrap{grid-template-columns:1fr}
-  .host-avatar{display:none}
-}
-
-/* LANG */
+/* ═══ LANG ═══ */
 [data-lang]{display:none}
 .lang-ja [data-lang="ja"]{display:inline}
 .lang-en [data-lang="en"]{display:inline}
@@ -259,789 +303,576 @@ footer{background:var(--em);padding:3rem 0;text-align:center}
 .lang-zh [data-lang="zh"]{display:inline}
 .lang-ko [data-lang="ko"]{display:inline}
 .lang-es [data-lang="es"]{display:inline}
-[data-lang-block]{display:none}
-.lang-ja [data-lang-block="ja"]{display:block}
-.lang-en [data-lang-block="en"]{display:block}
-.lang-fr [data-lang-block="fr"]{display:block}
-.lang-zh [data-lang-block="zh"]{display:block}
-.lang-ko [data-lang-block="ko"]{display:block}
-.lang-es [data-lang-block="es"]{display:block}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .hero,.room-feature,.room-feature.reverse,.area-sec,.access-wrap{grid-template-columns:1fr}
+  .hero{padding-top:98px}
+  .hero-left{padding:3rem 2rem}
+  .hero-right{height:55vw;min-height:280px}
+  .hero-right::before{background:linear-gradient(to bottom,var(--mc) 0%,transparent 35%)}
+  .booking-strip{grid-template-columns:1fr 1fr;gap:1.5rem;padding:1.5rem 2rem}
+  .bk-field{border-right:none;padding-right:0;margin-right:0}
+  .sec{padding:4rem 2rem}
+  .am-grid{grid-template-columns:repeat(2,1fr)}
+  .rv-grid{grid-template-columns:1fr}
+  .ci-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+  .g-cell:first-child{grid-row:auto}
+  .access-map{height:300px}
+  footer{grid-template-columns:1fr;text-align:center}
+  .footer-links{justify-content:center}
+  nav .nav-links{display:none}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#" class="nav-logo">鵠沼 <em>Hideaway</em></a>
-  <div class="nav-links">
-    <a href="#features"><span data-lang="ja">特徴</span><span data-lang="en">Features</span><span data-lang="fr">Caractéristiques</span><span data-lang="zh">特色</span><span data-lang="ko">특징</span><span data-lang="es">Características</span></a>
-    <a href="#amenities"><span data-lang="ja">設備</span><span data-lang="en">Amenities</span><span data-lang="fr">Équipements</span><span data-lang="zh">设施</span><span data-lang="ko">시설</span><span data-lang="es">Servicios</span></a>
-    <a href="#beach"><span data-lang="ja">周辺</span><span data-lang="en">Area</span><span data-lang="fr">Quartier</span><span data-lang="zh">周边</span><span data-lang="ko">주변</span><span data-lang="es">Zona</span></a>
-    <a href="#reviews"><span data-lang="ja">口コミ</span><span data-lang="en">Reviews</span><span data-lang="fr">Avis</span><span data-lang="zh">评价</span><span data-lang="ko">후기</span><span data-lang="es">Reseñas</span></a>
-    <a href="#access"><span data-lang="ja">アクセス</span><span data-lang="en">Access</span><span data-lang="fr">Accès</span><span data-lang="zh">交通</span><span data-lang="ko">교통</span><span data-lang="es">Acceso</span></a>
-    <button class="nav-links nav-book" onclick="openModal()"><span data-lang="ja">予約する</span><span data-lang="en">Book Now</span><span data-lang="fr">Réserver</span><span data-lang="zh">立即预订</span><span data-lang="ko">예약하기</span><span data-lang="es">Reservar</span></button>
-  </div>
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-sub">KUGENUMA · FUJISAWA</span>
+    <span class="nav-brand-name">鵠沼 Hideaway</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#rooms"><span data-lang="ja">お部屋</span><span data-lang="en">Rooms</span><span data-lang="fr">Chambres</span><span data-lang="zh">房间</span><span data-lang="ko">객실</span><span data-lang="es">Habitaciones</span></a></li>
+    <li><a href="#amenities"><span data-lang="ja">設備</span><span data-lang="en">Amenities</span><span data-lang="fr">Équipements</span><span data-lang="zh">设施</span><span data-lang="ko">시설</span><span data-lang="es">Servicios</span></a></li>
+    <li><a href="#access"><span data-lang="ja">アクセス</span><span data-lang="en">Access</span><span data-lang="fr">Accès</span><span data-lang="zh">交通</span><span data-lang="ko">교통</span><span data-lang="es">Acceso</span></a></li>
+    <li><button class="nav-cta" onclick="openModal()"><span data-lang="ja">予約する</span><span data-lang="en">Book Now</span><span data-lang="fr">Réserver</span><span data-lang="zh">立即预订</span><span data-lang="ko">예약하기</span><span data-lang="es">Reservar</span></button></li>
+  </ul>
 </nav>
 
 <!-- LANG BAR -->
 <div class="lang-bar">
-  <button class="lang-btn active" data-lang-target="ja" onclick="setLang('ja')">日本語</button>
-  <button class="lang-btn" data-lang-target="en" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" data-lang-target="fr" onclick="setLang('fr')">FR</button>
-  <button class="lang-btn" data-lang-target="zh" onclick="setLang('zh')">中文</button>
-  <button class="lang-btn" data-lang-target="ko" onclick="setLang('ko')">한국어</button>
-  <button class="lang-btn" data-lang-target="es" onclick="setLang('es')">ES</button>
+  <button class="lang-btn active" onclick="setLang('ja')">日本語</button>
+  <button class="lang-btn" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('fr')">FR</button>
+  <button class="lang-btn" onclick="setLang('zh')">中文</button>
+  <button class="lang-btn" onclick="setLang('ko')">한국어</button>
+  <button class="lang-btn" onclick="setLang('es')">ES</button>
 </div>
 
 <!-- HERO -->
-<section class="hero" style="margin-top:100px">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span data-lang="ja">湘南・鵠沼海岸 一棟貸し</span>
-      <span data-lang="en">Entire Apartment · Kugenuma Beach</span>
-      <span data-lang="fr">Logement entier · Plage de Kugenuma</span>
-      <span data-lang="zh">整栋出租 · 鵠沼海滩</span>
-      <span data-lang="ko">단독 임대 · 구게누마 해변</span>
-      <span data-lang="es">Alojamiento entero · Playa Kugenuma</span>
-    </div>
-    <h1 class="hero-title">鵠沼 <em>Hideaway</em></h1>
-    <p class="hero-sub">
-      <span data-lang="ja">駅徒歩3分 · 海まで自転車5分 · 3LDK · 最大8名</span>
-      <span data-lang="en">3min walk from station · Bike to beach · 3LDK · Up to 8 guests</span>
-      <span data-lang="fr">3min à pied de la gare · Vélo jusqu'à la plage · 3LDK · 8 pers.</span>
-      <span data-lang="zh">步行3分钟到车站 · 骑车到海滩 · 3LDK · 最多8人</span>
-      <span data-lang="ko">역에서 도보 3분 · 자전거로 해변까지 · 3LDK · 최대 8명</span>
-      <span data-lang="es">3min a pie de la estación · En bici a la playa · 3LDK · 8 pers.</span>
-    </p>
-    <button class="hero-cta" onclick="openModal()">
-      <span data-lang="ja">空き状況を確認する</span>
-      <span data-lang="en">Check Availability</span>
-      <span data-lang="fr">Vérifier les disponibilités</span>
-      <span data-lang="zh">查看空房</span>
-      <span data-lang="ko">예약 가능 확인</span>
-      <span data-lang="es">Ver disponibilidad</span>
-    </button>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">3LDK</div><div class="hero-stat-label"><span data-lang="ja">間取り</span><span data-lang="en">Layout</span><span data-lang="fr">Surface</span><span data-lang="zh">户型</span><span data-lang="ko">구조</span><span data-lang="es">Distribución</span></div></div>
-      <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label"><span data-lang="ja">最大人数</span><span data-lang="en">Max Guests</span><span data-lang="fr">Personnes max</span><span data-lang="zh">最多人数</span><span data-lang="ko">최대 인원</span><span data-lang="es">Huéspedes máx.</span></div></div>
-      <div class="hero-stat"><div class="hero-stat-num">3min</div><div class="hero-stat-label"><span data-lang="ja">駅から徒歩</span><span data-lang="en">Walk to station</span><span data-lang="fr">À pied de la gare</span><span data-lang="zh">步行到车站</span><span data-lang="ko">역까지 도보</span><span data-lang="es">A pie de estación</span></div></div>
-      <div class="hero-stat"><div class="hero-stat-num">FREE</div><div class="hero-stat-label"><span data-lang="ja">自転車レンタル</span><span data-lang="en">Bike Rental</span><span data-lang="fr">Location vélo</span><span data-lang="zh">免费租自行车</span><span data-lang="ko">자전거 렌탈</span><span data-lang="es">Alquiler bici</span></div></div>
-    </div>
-  </div>
-  <div class="hero-wave">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,60 C240,110 480,10 720,60 C960,110 1200,10 1440,60 L1440,120 L0,120 Z" fill="#F5F2EC"/>
+<section class="hero" id="top">
+  <div class="hero-left">
+    <svg class="hero-kamon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="22" stroke="#C8A96E" stroke-width="0.8"/>
+      <circle cx="24" cy="24" r="16" stroke="#C8A96E" stroke-width="0.5" stroke-dasharray="2 4"/>
+      <circle cx="24" cy="24" r="8" stroke="#C8A96E" stroke-width="0.8"/>
+      <line x1="24" y1="2" x2="24" y2="46" stroke="#C8A96E" stroke-width="0.5" opacity="0.4"/>
+      <line x1="2" y1="24" x2="46" y2="24" stroke="#C8A96E" stroke-width="0.5" opacity="0.4"/>
     </svg>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features">
-  <div class="container">
-    <p class="section-label reveal">
-      <span data-lang="ja">この物件について</span><span data-lang="en">About this place</span><span data-lang="fr">À propos</span><span data-lang="zh">关于本房源</span><span data-lang="ko">이 숙소에 대해</span><span data-lang="es">Sobre este lugar</span>
+    <div class="hero-property-name">
+      <div class="hero-property-en">KUGENUMA · FUJISAWA</div>
+      <div class="hero-property-ja">鵠沼</div>
+      <div class="hero-property-sub">Hideaway</div>
+    </div>
+    <p class="hero-label">
+      <span data-lang="ja">神奈川県藤沢市鵠沼 · 一棟貸しアパート · 3LDK</span>
+      <span data-lang="en">Kugenuma, Fujisawa · Entire Apartment · 3LDK</span>
+      <span data-lang="fr">Kugenuma, Fujisawa · Logement entier · 3LDK</span>
+      <span data-lang="zh">藤泽市鵠沼 · 整栋出租 · 3LDK</span>
+      <span data-lang="ko">후지사와 구게누마 · 단독 임대 · 3LDK</span>
+      <span data-lang="es">Kugenuma, Fujisawa · Apartamento entero · 3LDK</span>
     </p>
-    <h2 class="section-title reveal">
-      <span data-lang="ja">湘南の海と街を<em>自由に</em>楽しむ</span>
-      <span data-lang="en">Your <em>Base</em> for Shonan Living</span>
-      <span data-lang="fr">Vivez <em>librement</em> Shonan</span>
-      <span data-lang="zh">自由<em>享受</em>湘南海滨</span>
-      <span data-lang="ko">쇼난을 <em>자유롭게</em> 즐기는 거점</span>
-      <span data-lang="es">Tu base para <em>vivir</em> Shonan</span>
-    </h2>
-    <div class="divider reveal"></div>
-    <div class="features-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon">🚲</div>
-        <div class="feature-name"><span data-lang="ja">自転車レンタル無料</span><span data-lang="en">Free Bike Rental</span><span data-lang="fr">Vélos gratuits</span><span data-lang="zh">免费租车</span><span data-lang="ko">자전거 무료 대여</span><span data-lang="es">Bicicletas gratis</span></div>
-        <p class="feature-desc"><span data-lang="ja">自転車で5分、鵠沼海岸へ。湘南の海岸線を気ままにサイクリング。</span><span data-lang="en">5 minutes by bike to Kugenuma Beach. Explore the Shonan coastline freely.</span><span data-lang="fr">5 minutes à vélo jusqu'à la plage de Kugenuma. Explorez la côte de Shonan.</span><span data-lang="zh">骑车5分钟到鵠沼海滩，自由探索湘南海岸线。</span><span data-lang="ko">자전거로 5분이면 구게누마 해변. 쇼난 해안선을 자유롭게 라이딩.</span><span data-lang="es">5 minutos en bici a la playa de Kugenuma. Recorre el litoral de Shonan.</span></p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">🚉</div>
-        <div class="feature-name"><span data-lang="ja">駅徒歩3分</span><span data-lang="en">3min from Station</span><span data-lang="fr">3min de la gare</span><span data-lang="zh">步行3分钟到车站</span><span data-lang="ko">역 도보 3분</span><span data-lang="es">3min de la estación</span></div>
-        <p class="feature-desc"><span data-lang="ja">小田急線「鵠沼海岸」駅から徒歩3分。新宿から約60分でアクセス可能。</span><span data-lang="en">3 min walk from Kugenuma-Kaigan station (Odakyu Line). ~60 min from Shinjuku.</span><span data-lang="fr">3min à pied de la gare Kugenuma-Kaigan (ligne Odakyu). ~60 min de Shinjuku.</span><span data-lang="zh">距小田急线"鵠沼海岸"站步行3分钟。从新宿约60分钟可达。</span><span data-lang="ko">오다큐선 '구게누마카이간'역에서 도보 3분. 신주쿠에서 약 60분.</span><span data-lang="es">3 min a pie de la estación Kugenuma-Kaigan (línea Odakyu). ~60 min de Shinjuku.</span></p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">👨‍👩‍👧‍👦</div>
-        <div class="feature-name"><span data-lang="ja">家族・グループに最適</span><span data-lang="en">Perfect for Families</span><span data-lang="fr">Idéal pour familles</span><span data-lang="zh">家庭/团体最佳</span><span data-lang="ko">가족·그룹에 최적</span><span data-lang="es">Ideal para familias</span></div>
-        <p class="feature-desc"><span data-lang="ja">3LDKで最大8名まで。広々としたリビングで家族や仲間と特別な時間を。</span><span data-lang="en">Spacious 3LDK for up to 8. Create unforgettable memories with family and friends.</span><span data-lang="fr">Spacieux 3LDK pour 8 personnes. Créez des souvenirs inoubliables en famille.</span><span data-lang="zh">宽敞的3LDK最多可容纳8人，与家人朋友共度美好时光。</span><span data-lang="ko">3LDK로 최대 8명. 가족과 친구들과 특별한 시간을 보내세요.</span><span data-lang="es">Espacioso 3LDK para 8 personas. Crea recuerdos inolvidables con tu familia.</span></p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">🌊</div>
-        <div class="feature-name"><span data-lang="ja">湘南ライフスタイル</span><span data-lang="en">Shonan Lifestyle</span><span data-lang="fr">Art de vivre Shonan</span><span data-lang="zh">湘南生活方式</span><span data-lang="ko">쇼난 라이프스타일</span><span data-lang="es">Estilo de vida Shonan</span></div>
-        <p class="feature-desc"><span data-lang="ja">サーフィン、海水浴、散策。日本屈指のビーチリゾート・湘南の魅力を体感。</span><span data-lang="en">Surfing, swimming, strolling. Experience Japan's premier beach resort lifestyle.</span><span data-lang="fr">Surf, baignade, promenade. Vivez la vie balnéaire la plus prisée du Japon.</span><span data-lang="zh">冲浪、游泳、散步。体验日本首屈一指的海滨度假风情。</span><span data-lang="ko">서핑, 수영, 산책. 일본 최고의 해변 리조트 쇼난의 매력을 만끽하세요.</span><span data-lang="es">Surf, baño, paseos. Vive el mejor resort de playa de Japón.</span></p>
-      </div>
+    <h1 class="hero-title">
+      <span data-lang="ja"><span class="gold">駅</span>徒歩3分<br>海まで<span class="gold">自転車</span><br>5分の宿</span>
+      <span data-lang="en"><span class="gold">3 min</span> walk<br>to station<br><span class="gold">Bike</span> to beach</span>
+      <span data-lang="fr"><span class="gold">3 min</span> de<br>la gare<br>Vélo &amp; <span class="gold">plage</span></span>
+      <span data-lang="zh"><span class="gold">步行3分</span><br>到车站<br><span class="gold">骑车</span>到海滩</span>
+      <span data-lang="ko"><span class="gold">역 도보</span><br>3분 거리<br><span class="gold">자전거</span>로 해변</span>
+      <span data-lang="es"><span class="gold">3 min</span><br>a la estación<br>Bici a la <span class="gold">playa</span></span>
+    </h1>
+    <p class="hero-tagline">
+      <span data-lang="ja">最大8名 · 自転車無料 · 湘南の暮らしを体験</span>
+      <span data-lang="en">Up to 8 guests · Free bikes · Live the Shonan life</span>
+      <span data-lang="fr">Jusqu'à 8 pers. · Vélos offerts · Vivez Shonan</span>
+      <span data-lang="zh">最多8人 · 免费自行车 · 体验湘南生活</span>
+      <span data-lang="ko">최대 8명 · 자전거 무료 · 쇼난 라이프 체험</span>
+      <span data-lang="es">Hasta 8 huéspedes · Bicis gratis · Vive Shonan</span>
+    </p>
+    <div class="hero-chips">
+      <span class="hero-chip">3LDK</span>
+      <span class="hero-chip"><span data-lang="ja">最大8名</span><span data-lang="en">Max 8</span><span data-lang="fr">8 pers.</span><span data-lang="zh">最多8人</span><span data-lang="ko">최대 8명</span><span data-lang="es">8 huésp.</span></span>
+      <span class="hero-chip"><span data-lang="ja">自転車無料</span><span data-lang="en">Free bikes</span><span data-lang="fr">Vélos gratuits</span><span data-lang="zh">免费自行车</span><span data-lang="ko">자전거 무료</span><span data-lang="es">Bicis gratis</span></span>
+      <span class="hero-chip"><span data-lang="ja">駅徒歩3分</span><span data-lang="en">3min to stn</span><span data-lang="fr">3min gare</span><span data-lang="zh">步行3分钟</span><span data-lang="ko">역 도보 3분</span><span data-lang="es">3min estación</span></span>
+      <span class="hero-chip"><span data-lang="ja">セルフチェックイン</span><span data-lang="en">Self check-in</span><span data-lang="fr">Entrée autonome</span><span data-lang="zh">自助入住</span><span data-lang="ko">셀프 체크인</span><span data-lang="es">Entrada autónoma</span></span>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="openModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span data-lang="ja">空き確認・予約</span><span data-lang="en">Check &amp; Book</span><span data-lang="fr">Vérifier &amp; Réserver</span><span data-lang="zh">查看并预订</span><span data-lang="ko">확인 및 예약</span><span data-lang="es">Ver y Reservar</span>
+      </button>
+      <a href="#rooms" class="btn-ghost"><span data-lang="ja">お部屋を見る</span><span data-lang="en">See rooms</span><span data-lang="fr">Voir les chambres</span><span data-lang="zh">查看房间</span><span data-lang="ko">객실 보기</span><span data-lang="es">Ver habitaciones</span></a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img-main" src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/ec55d978-aa42-4046-b23e-555d997bc7bd.jpg" alt="寝室">
+    <div class="hero-float">
+      <div class="hero-float-label">AIRBNB RATING</div>
+      <div class="hero-float-val">5.0</div>
+      <div class="hero-float-sub">★★★★★ Superhost</div>
     </div>
   </div>
 </section>
 
-<!-- SPECS -->
-<section style="background:var(--white);padding:5rem 0">
-  <div class="container">
-    <div class="specs-wrap">
-      <div class="reveal">
-        <p class="section-label"><span data-lang="ja">物件詳細</span><span data-lang="en">Property Details</span><span data-lang="fr">Détails</span><span data-lang="zh">房源详情</span><span data-lang="ko">숙소 상세</span><span data-lang="es">Detalles</span></p>
-        <h2 class="section-title"><span data-lang="ja">広々3LDK<em>一棟貸し</em></span><span data-lang="en">Spacious 3LDK<em> Entire Apartment</em></span><span data-lang="fr">Spacieux 3LDK<em> entier</em></span><span data-lang="zh">宽敞3LDK<em>整栋出租</em></span><span data-lang="ko">넓은 3LDK<em> 단독 임대</em></span><span data-lang="es">Amplio 3LDK<em> entero</em></span></h2>
-        <div class="divider"></div>
-        <ul class="specs-list">
-          <li><span class="spec-key"><span data-lang="ja">タイプ</span><span data-lang="en">Type</span><span data-lang="fr">Type</span><span data-lang="zh">类型</span><span data-lang="ko">유형</span><span data-lang="es">Tipo</span></span><span class="spec-val"><span data-lang="ja">一棟貸しアパート</span><span data-lang="en">Entire Apartment</span><span data-lang="fr">Appartement entier</span><span data-lang="zh">整栋公寓</span><span data-lang="ko">전체 아파트</span><span data-lang="es">Apartamento entero</span></span></li>
-          <li><span class="spec-key"><span data-lang="ja">間取り</span><span data-lang="en">Layout</span><span data-lang="fr">Surface</span><span data-lang="zh">户型</span><span data-lang="ko">구조</span><span data-lang="es">Distribución</span></span><span class="spec-val">3LDK</span></li>
-          <li><span class="spec-key"><span data-lang="ja">最大人数</span><span data-lang="en">Max Guests</span><span data-lang="fr">Personnes max</span><span data-lang="zh">最多人数</span><span data-lang="ko">최대 인원</span><span data-lang="es">Huéspedes máx.</span></span><span class="spec-val">8<span data-lang="ja">名</span><span data-lang="en"> guests</span><span data-lang="fr"> pers.</span><span data-lang="zh">人</span><span data-lang="ko">명</span><span data-lang="es"> huésp.</span></span></li>
-          <li><span class="spec-key"><span data-lang="ja">寝室数</span><span data-lang="en">Bedrooms</span><span data-lang="fr">Chambres</span><span data-lang="zh">卧室数</span><span data-lang="ko">침실 수</span><span data-lang="es">Dormitorios</span></span><span class="spec-val">3</span></li>
-          <li><span class="spec-key"><span data-lang="ja">バスルーム</span><span data-lang="en">Bathroom</span><span data-lang="fr">Salle de bain</span><span data-lang="zh">浴室</span><span data-lang="ko">욕실</span><span data-lang="es">Baño</span></span><span class="spec-val">1</span></li>
-          <li><span class="spec-key"><span data-lang="ja">自転車</span><span data-lang="en">Bicycles</span><span data-lang="fr">Vélos</span><span data-lang="zh">自行车</span><span data-lang="ko">자전거</span><span data-lang="es">Bicicletas</span></span><span class="spec-val"><span data-lang="ja">無料レンタル</span><span data-lang="en">Free rental</span><span data-lang="fr">Location gratuite</span><span data-lang="zh">免费租用</span><span data-lang="ko">무료 대여</span><span data-lang="es">Alquiler gratuito</span></span></li>
-          <li><span class="spec-key"><span data-lang="ja">チェックイン</span><span data-lang="en">Check-in</span><span data-lang="fr">Arrivée</span><span data-lang="zh">入住</span><span data-lang="ko">체크인</span><span data-lang="es">Entrada</span></span><span class="spec-val">15:00〜</span></li>
-          <li><span class="spec-key"><span data-lang="ja">チェックアウト</span><span data-lang="en">Check-out</span><span data-lang="fr">Départ</span><span data-lang="zh">退房</span><span data-lang="ko">체크아웃</span><span data-lang="es">Salida</span></span><span class="spec-val">〜11:00</span></li>
-        </ul>
-      </div>
-      <div class="specs-img reveal">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/3b3a1557-a434-41e5-b3cc-49b7d9dcddb4.jpg" alt="ダイニング・キッチン" style="width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;">
-      </div>
+<!-- BOOKING STRIP -->
+<div class="booking-strip">
+  <div class="bk-field">
+    <label class="bk-label"><span data-lang="ja">チェックイン</span><span data-lang="en">CHECK-IN</span><span data-lang="fr">ARRIVÉE</span><span data-lang="zh">入住</span><span data-lang="ko">체크인</span><span data-lang="es">LLEGADA</span></label>
+    <input type="date" class="bk-input" id="strip-ci">
+  </div>
+  <div class="bk-field">
+    <label class="bk-label"><span data-lang="ja">チェックアウト</span><span data-lang="en">CHECK-OUT</span><span data-lang="fr">DÉPART</span><span data-lang="zh">退房</span><span data-lang="ko">체크아웃</span><span data-lang="es">SALIDA</span></label>
+    <input type="date" class="bk-input" id="strip-co">
+  </div>
+  <div class="bk-field">
+    <label class="bk-label"><span data-lang="ja">人数</span><span data-lang="en">GUESTS</span><span data-lang="fr">PERSONNES</span><span data-lang="zh">人数</span><span data-lang="ko">인원</span><span data-lang="es">HUÉSPEDES</span></label>
+    <input type="number" class="bk-input" min="1" max="8" value="2" style="max-width:80px">
+  </div>
+  <button class="bk-btn" onclick="openModalFromStrip()">
+    <span data-lang="ja">予約する</span><span data-lang="en">Book Now</span><span data-lang="fr">Réserver</span><span data-lang="zh">立即预订</span><span data-lang="ko">예약하기</span><span data-lang="es">Reservar</span>
+  </button>
+</div>
+
+<!-- ROOM FEATURE 1: LIVING ROOM (photo left, matcha right) -->
+<section class="room-feature" id="rooms">
+  <div class="room-feature-img">
+    <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/a2cc88ba-6a55-42f7-91c2-af61a017be35.jpg" alt="リビング" loading="lazy">
+  </div>
+  <div class="room-feature-content">
+    <p class="sec-label"><span data-lang="ja">リビング・ダイニング</span><span data-lang="en">Living &amp; Dining</span><span data-lang="fr">Salon &amp; Salle à manger</span><span data-lang="zh">客厅·餐厅</span><span data-lang="ko">거실·다이닝</span><span data-lang="es">Salón &amp; Comedor</span></p>
+    <h2 class="sec-title"><span data-lang="ja">家族みんなが<em>くつろげる</em>広いリビング</span><span data-lang="en">A <em>spacious</em> living room for everyone</span><span data-lang="fr">Un salon <em>spacieux</em> pour tous</span><span data-lang="zh">宽敞的<em>家庭</em>客厅</span><span data-lang="ko">온 가족이 <em>편히 쉬는</em> 넓은 거실</span><span data-lang="es">Amplia sala <em>para todos</em></span></h2>
+    <div class="gold-bar"></div>
+    <p class="sec-body"><span data-lang="ja">ミントグリーンのアクセントウォールが印象的な広々としたリビング。大型ソファ・テレビ・ゲーム・ボードゲームを完備。家族や仲間との時間を豊かに。</span><span data-lang="en">A bright, spacious living room with mint-green accent wall, large sofa, TV, and games. Perfect for families and groups looking to relax together.</span><span data-lang="fr">Lumineux salon avec mur vert menthe, grand canapé, TV et jeux. Parfait pour se retrouver en famille.</span><span data-lang="zh">薄荷绿主题墙令人印象深刻，配备大沙发、电视和各类游戏，是家庭聚会的理想空间。</span><span data-lang="ko">민트그린 포인트 월이 인상적인 넓은 거실. 대형 소파, TV, 게임 완비. 가족과의 소중한 시간을.</span><span data-lang="es">Luminoso salón con pared verde menta, gran sofá, TV y juegos. Ideal para reuniones familiares.</span></p>
+    <ul class="room-specs">
+      <li><strong><span data-lang="ja">大型テレビ</span><span data-lang="en">Large TV</span><span data-lang="fr">Grand écran TV</span><span data-lang="zh">大屏电视</span><span data-lang="ko">대형 TV</span><span data-lang="es">TV grande</span></strong></li>
+      <li><strong><span data-lang="ja">ボードゲーム完備</span><span data-lang="en">Board games</span><span data-lang="fr">Jeux de société</span><span data-lang="zh">桌游齐全</span><span data-lang="ko">보드게임 완비</span><span data-lang="es">Juegos de mesa</span></strong></li>
+      <li><strong><span data-lang="ja">高速Wi-Fi</span><span data-lang="en">High-speed Wi-Fi</span><span data-lang="fr">Wi-Fi rapide</span><span data-lang="zh">高速Wi-Fi</span><span data-lang="ko">고속 Wi-Fi</span><span data-lang="es">Wi-Fi rápido</span></strong></li>
+      <li><strong><span data-lang="ja">エアコン完備</span><span data-lang="en">Air conditioning</span><span data-lang="fr">Climatisation</span><span data-lang="zh">空调完备</span><span data-lang="ko">에어컨 완비</span><span data-lang="es">Aire acondicionado</span></strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<section class="gallery-sec">
+  <div class="gallery-grid">
+    <div class="g-cell" onclick="openLB(0)">
+      <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/7d298951-a0fe-45df-b4de-462db82771e4.jpg" alt="リビング" loading="lazy">
+      <div class="g-caption"><span data-lang="ja">リビング</span><span data-lang="en">Living Room</span></div>
     </div>
+    <div class="g-cell" onclick="openLB(1)">
+      <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/3b3a1557-a434-41e5-b3cc-49b7d9dcddb4.jpg" alt="ダイニング" loading="lazy">
+      <div class="g-caption"><span data-lang="ja">ダイニング・キッチン</span><span data-lang="en">Dining &amp; Kitchen</span></div>
+    </div>
+    <div class="g-cell" onclick="openLB(2)">
+      <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/16865317-2afa-4337-ab6b-2a266fb889a0.jpg" alt="大部屋" loading="lazy">
+      <div class="g-caption"><span data-lang="ja">大寝室（3ベッド）</span><span data-lang="en">Large Bedroom (3 beds)</span></div>
+    </div>
+    <div class="g-cell mc-block">
+      <div class="gc-num">28</div>
+      <div class="gc-lbl"><span data-lang="ja">枚の写真</span><span data-lang="en">PHOTOS</span><span data-lang="fr">PHOTOS</span><span data-lang="zh">张照片</span><span data-lang="ko">장의 사진</span><span data-lang="es">FOTOS</span></div>
+      <div class="gc-lbl" style="margin-top:.8rem;color:rgba(200,169,110,.6);font-size:.6rem">Airbnb</div>
+    </div>
+    <div class="g-cell" onclick="openLB(3)">
+      <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/6560a48b-957d-43ac-8757-3c99f8f937c8.jpg" alt="和室" loading="lazy">
+      <div class="g-caption"><span data-lang="ja">和室</span><span data-lang="en">Japanese Room</span></div>
+    </div>
+    <div class="g-cell" onclick="openLB(4)">
+      <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/4570f84e-890f-4857-ad4e-13f082f0a4a7.jpg" alt="キッチン" loading="lazy">
+      <div class="g-caption"><span data-lang="ja">キッチン</span><span data-lang="en">Kitchen</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOM FEATURE 2: BEDROOM (matcha left, photo right) -->
+<section class="room-feature reverse">
+  <div class="room-feature-content">
+    <p class="sec-label"><span data-lang="ja">寝室・和室</span><span data-lang="en">Bedrooms</span><span data-lang="fr">Chambres</span><span data-lang="zh">卧室</span><span data-lang="ko">침실</span><span data-lang="es">Dormitorios</span></p>
+    <h2 class="sec-title"><span data-lang="ja">3室の<em>プライベート</em>空間で最大8名</span><span data-lang="en">3 <em>private</em> rooms for up to 8</span><span data-lang="fr">3 chambres <em>privées</em> pour 8</span><span data-lang="zh">3间<em>私密</em>客房最多住8人</span><span data-lang="ko">3개 <em>프라이빗</em> 침실 최대 8명</span><span data-lang="es">3 habitaciones <em>privadas</em> para 8</span></h2>
+    <div class="gold-bar"></div>
+    <p class="sec-body"><span data-lang="ja">和モダンの畳ベッドルーム、グリーンテーマの広い洋室、ダブルベッドの落ち着いた寝室。3室それぞれに個性があり、家族旅行にもグループ旅行にも最適。</span><span data-lang="en">A tatami-style bedroom, a spacious green-themed western room, and a cozy double bedroom — each with its own character, perfect for families or groups.</span><span data-lang="fr">Chambre tatami, grande chambre verte et chambre double cosy — chaque pièce a son caractère, idéal pour familles et groupes.</span><span data-lang="zh">和式榻榻米卧室、绿色主题宽敞洋室和温馨双人卧室，三间各具特色，适合家庭和团体旅行。</span><span data-lang="ko">다다미 스타일 침실, 초록 테마 넓은 양실, 아늑한 더블 침실. 각각의 개성으로 가족·그룹 여행에 최적.</span><span data-lang="es">Dormitorio tatami, amplia habitación verde y acogedora habitación doble — cada una con su carácter, ideal para familias y grupos.</span></p>
+    <ul class="room-specs">
+      <li><strong><span data-lang="ja">寝室3室（洋室2・和室1）</span><span data-lang="en">3 bedrooms (2 western, 1 tatami)</span><span data-lang="fr">3 chambres (2 occidentales, 1 tatami)</span><span data-lang="zh">3间卧室（2间洋室，1间和室）</span><span data-lang="ko">침실 3개(양실 2, 다다미 1)</span><span data-lang="es">3 dormitorios (2 occidental, 1 tatami)</span></strong></li>
+      <li><strong><span data-lang="ja">最大8名就寝可能</span><span data-lang="en">Sleeps up to 8 guests</span><span data-lang="fr">Capacité 8 personnes</span><span data-lang="zh">最多可容纳8人就寝</span><span data-lang="ko">최대 8명 숙박 가능</span><span data-lang="es">Capacidad para 8 huéspedes</span></strong></li>
+      <li><strong><span data-lang="ja">全室エアコン・リネン完備</span><span data-lang="en">A/C &amp; linens in all rooms</span><span data-lang="fr">Clim. &amp; linge dans toutes les chambres</span><span data-lang="zh">全室空调·床上用品齐全</span><span data-lang="ko">전 객실 에어컨·침구 완비</span><span data-lang="es">A/C y ropa de cama en todas</span></strong></li>
+    </ul>
+  </div>
+  <div class="room-feature-img">
+    <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/d2bf4813-6b91-4a34-afb2-472069bd7706.jpg" alt="寝室" loading="lazy">
   </div>
 </section>
 
 <!-- AMENITIES -->
-<section class="amenities-bg" id="amenities">
-  <div class="container">
-    <p class="section-label reveal"><span data-lang="ja">設備・アメニティ</span><span data-lang="en">Amenities</span><span data-lang="fr">Équipements</span><span data-lang="zh">设施</span><span data-lang="ko">편의시설</span><span data-lang="es">Servicios</span></p>
-    <h2 class="section-title reveal"><span data-lang="ja">快適な滞在のための<em>充実設備</em></span><span data-lang="en"><em>Everything</em> You Need</span><span data-lang="fr">Tout le <em>confort</em> nécessaire</span><span data-lang="zh">舒适住宿的<em>完备设施</em></span><span data-lang="ko">편안한 숙박을 위한 <em>풍부한 시설</em></span><span data-lang="es">Todo lo que <em>necesitas</em></span></h2>
-    <div class="amenities-grid reveal">
-      <div class="amenity-item"><span>🚲</span><span><span data-lang="ja">自転車（無料）</span><span data-lang="en">Free Bicycles</span><span data-lang="fr">Vélos gratuits</span><span data-lang="zh">免费自行车</span><span data-lang="ko">무료 자전거</span><span data-lang="es">Bicicletas gratis</span></span></div>
-      <div class="amenity-item"><span>📺</span><span><span data-lang="ja">大型テレビ</span><span data-lang="en">Large TV</span><span data-lang="fr">Grand écran TV</span><span data-lang="zh">大屏电视</span><span data-lang="ko">대형 TV</span><span data-lang="es">TV grande</span></span></div>
-      <div class="amenity-item"><span>🍳</span><span><span data-lang="ja">フルキッチン</span><span data-lang="en">Full Kitchen</span><span data-lang="fr">Cuisine équipée</span><span data-lang="zh">完整厨房</span><span data-lang="ko">풀 키친</span><span data-lang="es">Cocina completa</span></span></div>
-      <div class="amenity-item"><span>🌐</span><span><span data-lang="ja">高速Wi-Fi</span><span data-lang="en">High-speed Wi-Fi</span><span data-lang="fr">Wi-Fi rapide</span><span data-lang="zh">高速Wi-Fi</span><span data-lang="ko">고속 Wi-Fi</span><span data-lang="es">Wi-Fi rápido</span></span></div>
-      <div class="amenity-item"><span>❄️</span><span><span data-lang="ja">エアコン全室</span><span data-lang="en">A/C in all rooms</span><span data-lang="fr">Climatisation</span><span data-lang="zh">全室空调</span><span data-lang="ko">전실 에어컨</span><span data-lang="es">A/C en todos</span></span></div>
-      <div class="amenity-item"><span>🛁</span><span><span data-lang="ja">バスルーム</span><span data-lang="en">Bathroom</span><span data-lang="fr">Salle de bain</span><span data-lang="zh">浴室</span><span data-lang="ko">욕실</span><span data-lang="es">Baño</span></span></div>
-      <div class="amenity-item"><span>🧺</span><span><span data-lang="ja">洗濯機</span><span data-lang="en">Washer</span><span data-lang="fr">Lave-linge</span><span data-lang="zh">洗衣机</span><span data-lang="ko">세탁기</span><span data-lang="es">Lavadora</span></span></div>
-      <div class="amenity-item"><span>🅿️</span><span><span data-lang="ja">駐車場（要確認）</span><span data-lang="en">Parking (inquire)</span><span data-lang="fr">Parking (se rens.)</span><span data-lang="zh">停车场(咨询)</span><span data-lang="ko">주차장(문의)</span><span data-lang="es">Aparcamiento</span></span></div>
-      <div class="amenity-item"><span>🔑</span><span><span data-lang="ja">セルフチェックイン</span><span data-lang="en">Self check-in</span><span data-lang="fr">Arrivée autonome</span><span data-lang="zh">自助入住</span><span data-lang="ko">셀프 체크인</span><span data-lang="es">Entrada autónoma</span></span></div>
-      <div class="amenity-item"><span>🏄</span><span><span data-lang="ja">サーフボード収納</span><span data-lang="en">Surfboard storage</span><span data-lang="fr">Rangement surf</span><span data-lang="zh">冲浪板存放</span><span data-lang="ko">서프보드 보관</span><span data-lang="es">Almacén tablas surf</span></span></div>
-      <div class="amenity-item"><span>🛏️</span><span><span data-lang="ja">リネン完備</span><span data-lang="en">Linens provided</span><span data-lang="fr">Linge fourni</span><span data-lang="zh">床上用品齐全</span><span data-lang="ko">침구 완비</span><span data-lang="es">Ropa de cama</span></span></div>
-      <div class="amenity-item"><span>☕</span><span><span data-lang="ja">コーヒーメーカー</span><span data-lang="en">Coffee maker</span><span data-lang="fr">Cafetière</span><span data-lang="zh">咖啡机</span><span data-lang="ko">커피메이커</span><span data-lang="es">Cafetera</span></span></div>
-    </div>
+<section class="amenities-sec" id="amenities">
+  <p class="sec-label reveal"><span data-lang="ja">設備・アメニティ</span><span data-lang="en">Amenities</span><span data-lang="fr">Équipements</span><span data-lang="zh">设施</span><span data-lang="ko">편의시설</span><span data-lang="es">Servicios</span></p>
+  <h2 class="sec-title reveal"><span data-lang="ja">快適な滞在のための<em>充実設備</em></span><span data-lang="en"><em>Everything</em> for a perfect stay</span><span data-lang="fr">Tout le <em>confort</em> nécessaire</span><span data-lang="zh">舒适住宿的<em>完备设施</em></span><span data-lang="ko">완벽한 숙박을 위한 <em>완비 시설</em></span><span data-lang="es">Todo para una estancia <em>perfecta</em></span></h2>
+  <div class="am-grid reveal">
+    <div class="am-item feat"><div class="am-icon">🚲</div><div class="am-name"><span data-lang="ja">自転車レンタル無料</span><span data-lang="en">Free Bike Rental</span><span data-lang="fr">Vélos gratuits</span><span data-lang="zh">免费租车</span><span data-lang="ko">자전거 무료 대여</span><span data-lang="es">Bicicletas gratis</span></div><div class="am-detail"><span data-lang="ja">海まで自転車で5分。湘南を自由に。</span><span data-lang="en">5 min to the beach. Explore freely.</span></div></div>
+    <div class="am-item feat"><div class="am-icon">🌐</div><div class="am-name"><span data-lang="ja">高速Wi-Fi</span><span data-lang="en">High-speed Wi-Fi</span><span data-lang="fr">Wi-Fi rapide</span><span data-lang="zh">高速Wi-Fi</span><span data-lang="ko">고속 Wi-Fi</span><span data-lang="es">Wi-Fi rápido</span></div><div class="am-detail"><span data-lang="ja">光回線、ワーケーションにも対応</span><span data-lang="en">Fiber internet, workcation-ready</span></div></div>
+    <div class="am-item"><div class="am-icon">🍳</div><div class="am-name"><span data-lang="ja">フルキッチン</span><span data-lang="en">Full Kitchen</span><span data-lang="fr">Cuisine équipée</span><span data-lang="zh">完整厨房</span><span data-lang="ko">풀 키친</span><span data-lang="es">Cocina completa</span></div><div class="am-detail"><span data-lang="ja">ガスコンロ・冷蔵庫・炊飯器完備</span><span data-lang="en">Gas stove, fridge, rice cooker</span></div></div>
+    <div class="am-item"><div class="am-icon">❄️</div><div class="am-name"><span data-lang="ja">全室エアコン</span><span data-lang="en">A/C all rooms</span><span data-lang="fr">Clim. partout</span><span data-lang="zh">全室空调</span><span data-lang="ko">전실 에어컨</span><span data-lang="es">A/C en todas</span></div><div class="am-detail"><span data-lang="ja">冷暖房完備、快適な室温をキープ</span><span data-lang="en">Heating &amp; cooling, year-round comfort</span></div></div>
+    <div class="am-item"><div class="am-icon">🧺</div><div class="am-name"><span data-lang="ja">洗濯機</span><span data-lang="en">Washer</span><span data-lang="fr">Lave-linge</span><span data-lang="zh">洗衣机</span><span data-lang="ko">세탁기</span><span data-lang="es">Lavadora</span></div><div class="am-detail"><span data-lang="ja">長期滞在も安心。洗剤付き。</span><span data-lang="en">Long stays welcome. Detergent included.</span></div></div>
+    <div class="am-item"><div class="am-icon">🛁</div><div class="am-name"><span data-lang="ja">バスルーム</span><span data-lang="en">Bathroom</span><span data-lang="fr">Salle de bain</span><span data-lang="zh">浴室</span><span data-lang="ko">욕실</span><span data-lang="es">Baño</span></div><div class="am-detail"><span data-lang="ja">追い焚き付きバスタブ</span><span data-lang="en">Bathtub with reheating function</span></div></div>
+    <div class="am-item"><div class="am-icon">🔑</div><div class="am-name"><span data-lang="ja">セルフチェックイン</span><span data-lang="en">Self check-in</span><span data-lang="fr">Entrée autonome</span><span data-lang="zh">自助入住</span><span data-lang="ko">셀프 체크인</span><span data-lang="es">Entrada autónoma</span></div><div class="am-detail"><span data-lang="ja">スマートロック対応、24時間対応</span><span data-lang="en">Smart lock, 24h access</span></div></div>
+    <div class="am-item"><div class="am-icon">🏄</div><div class="am-name"><span data-lang="ja">サーフボード収納</span><span data-lang="en">Surf storage</span><span data-lang="fr">Rangement surf</span><span data-lang="zh">冲浪板存放</span><span data-lang="ko">서프보드 보관</span><span data-lang="es">Almacén surf</span></div><div class="am-detail"><span data-lang="ja">サーファーのための専用スペース</span><span data-lang="en">Dedicated space for surfers</span></div></div>
   </div>
 </section>
 
-<!-- BEACH / AREA -->
-<section id="beach">
-  <div class="container">
-    <div class="beach-grid">
-      <div class="beach-visual reveal" style="border-radius:6px;overflow:hidden;aspect-ratio:3/2;background:#4E7208">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/7d298951-a0fe-45df-b4de-462db82771e4.jpg" alt="リビング" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="reveal">
-        <p class="section-label"><span data-lang="ja">湘南・鵠沼エリア</span><span data-lang="en">Shonan · Kugenuma Area</span><span data-lang="fr">Zone Shonan · Kugenuma</span><span data-lang="zh">湘南·鵠沼区域</span><span data-lang="ko">쇼난·구게누마 지역</span><span data-lang="es">Zona Shonan · Kugenuma</span></p>
-        <h2 class="section-title"><span data-lang="ja">海と街が<em>共存する</em>湘南</span><span data-lang="en">Where <em>Ocean Meets</em> City</span><span data-lang="fr">Où <em>l'océan</em> rencontre la ville</span><span data-lang="zh">海洋与城市<em>交融</em>的湘南</span><span data-lang="ko">바다와 도시가 <em>공존하는</em> 쇼난</span><span data-lang="es">Donde el <em>mar</em> se encuentra con la ciudad</span></h2>
-        <div class="divider"></div>
-        <p style="font-size:0.85rem;color:var(--stone);line-height:1.9;margin-bottom:1.5rem">
-          <span data-lang="ja">鵠沼海岸は湘南を代表するサーフスポット。海岸線に沿ったサイクリングコースや、江の島までの散策も楽しめます。おしゃれなカフェやレストランも充実した、暮らすように旅する理想の場所。</span>
-          <span data-lang="en">Kugenuma Beach is one of Shonan's premier surf spots. Enjoy cycling along the coastline or walking to Enoshima Island. With stylish cafes and restaurants nearby, it's the perfect place to live like a local.</span>
-          <span data-lang="fr">Kugenuma est l'un des meilleurs spots de surf de Shonan. Profitez du cyclisme le long du littoral ou d'une promenade jusqu'à l'île d'Enoshima. Avec ses cafés et restaurants tendance, c'est l'endroit idéal pour vivre comme un local.</span>
-          <span data-lang="zh">鵠沼海滩是湘南的代表性冲浪胜地。可以沿海岸线骑行，也可散步到江之岛。周边咖啡馆和餐厅林立，是像当地人一样旅行的理想之地。</span>
-          <span data-lang="ko">구게누마 해변은 쇼난을 대표하는 서핑 명소입니다. 해안선을 따라 자전거를 타거나 에노시마까지 산책을 즐길 수 있습니다. 세련된 카페와 레스토랑이 즐비한, 현지인처럼 여행하기에 완벽한 곳입니다.</span>
-          <span data-lang="es">Kugenuma Beach es uno de los mejores spots de surf de Shonan. Disfruta del ciclismo por la costa o pasea hasta la isla de Enoshima. Con elegantes cafés y restaurantes cerca, es el lugar perfecto para vivir como un local.</span>
-        </p>
-        <div class="beach-tags">
-          <span class="beach-tag">🏄 <span data-lang="ja">サーフィン</span><span data-lang="en">Surfing</span><span data-lang="fr">Surf</span><span data-lang="zh">冲浪</span><span data-lang="ko">서핑</span><span data-lang="es">Surf</span></span>
-          <span class="beach-tag">🚲 <span data-lang="ja">サイクリング</span><span data-lang="en">Cycling</span><span data-lang="fr">Vélo</span><span data-lang="zh">骑行</span><span data-lang="ko">사이클링</span><span data-lang="es">Ciclismo</span></span>
-          <span class="beach-tag">🗼 <span data-lang="ja">江の島</span><span data-lang="en">Enoshima</span><span data-lang="fr">Enoshima</span><span data-lang="zh">江之岛</span><span data-lang="ko">에노시마</span><span data-lang="es">Enoshima</span></span>
-          <span class="beach-tag">🍜 <span data-lang="ja">湘南グルメ</span><span data-lang="en">Shonan Food</span><span data-lang="fr">Gastronomie</span><span data-lang="zh">湘南美食</span><span data-lang="ko">쇼난 음식</span><span data-lang="es">Gastronomía</span></span>
-          <span class="beach-tag">🌅 <span data-lang="ja">夕日スポット</span><span data-lang="en">Sunset spot</span><span data-lang="fr">Coucher de soleil</span><span data-lang="zh">日落胜地</span><span data-lang="ko">석양 명소</span><span data-lang="es">Atardecer</span></span>
-        </div>
-      </div>
+<!-- AREA SECTION -->
+<section class="area-sec">
+  <div class="area-content reveal">
+    <p class="sec-label"><span data-lang="ja">周辺エリア</span><span data-lang="en">The Area</span><span data-lang="fr">Les environs</span><span data-lang="zh">周边区域</span><span data-lang="ko">주변 지역</span><span data-lang="es">La zona</span></p>
+    <h2 class="sec-title"><span data-lang="ja">海と街が<em>共存する</em>湘南ライフ</span><span data-lang="en">Shonan life — <em>sea meets city</em></span><span data-lang="fr">Shonan — <em>la mer et la ville</em></span><span data-lang="zh">湘南生活——<em>海与城的交融</em></span><span data-lang="ko">바다와 도시가 <em>공존하는</em> 쇼난</span><span data-lang="es">Shonan — <em>mar y ciudad</em></span></h2>
+    <div class="gold-bar"></div>
+    <p class="sec-body"><span data-lang="ja">鵠沼海岸は湘南を代表するサーフスポット。朝は海岸散歩、昼はカフェ巡り、夕方は江の島への自転車ライド。都心から60分の別世界へ。</span><span data-lang="en">Kugenuma is Shonan's premier surf spot. Morning beach walks, café hopping, sunset rides to Enoshima — a world apart, just 60 minutes from Tokyo.</span><span data-lang="fr">Kugenuma est le spot de surf emblématique de Shonan. Promenades matinales, cafés branchés, balade à vélo vers Enoshima — à 60 min de Tokyo.</span><span data-lang="zh">鵠沼海滩是湘南代表性的冲浪胜地。晨间散步、咖啡巡游、傍晚骑车到江之岛——距东京60分钟的另一个世界。</span><span data-lang="ko">구게누마는 쇼난 최고의 서핑 명소. 아침 해변 산책, 카페 투어, 저녁 에노시마 자전거 라이드 — 도쿄에서 60분의 별세계.</span><span data-lang="es">Kugenuma es el spot de surf más emblemático de Shonan. Paseos matutinos, cafés, paseos en bici a Enoshima — a 60 min de Tokio.</span></p>
+    <div class="area-icons">
+      <div class="area-icon"><div class="area-icon-sym">🌊</div><div class="area-icon-title"><span data-lang="ja">鵠沼海岸</span><span data-lang="en">Kugenuma Beach</span><span data-lang="fr">Plage Kugenuma</span><span data-lang="zh">鵠沼海滩</span><span data-lang="ko">구게누마 해변</span><span data-lang="es">Playa Kugenuma</span></div><div class="area-icon-body"><span data-lang="ja">自転車5分</span><span data-lang="en">5 min by bike</span><span data-lang="fr">5 min à vélo</span><span data-lang="zh">骑车5分钟</span><span data-lang="ko">자전거 5분</span><span data-lang="es">5 min en bici</span></div></div>
+      <div class="area-icon"><div class="area-icon-sym">🗼</div><div class="area-icon-title"><span data-lang="ja">江の島</span><span data-lang="en">Enoshima</span><span data-lang="fr">Enoshima</span><span data-lang="zh">江之岛</span><span data-lang="ko">에노시마</span><span data-lang="es">Enoshima</span></div><div class="area-icon-body"><span data-lang="ja">自転車15分</span><span data-lang="en">15 min by bike</span><span data-lang="fr">15 min à vélo</span><span data-lang="zh">骑车15分钟</span><span data-lang="ko">자전거 15분</span><span data-lang="es">15 min en bici</span></div></div>
+      <div class="area-icon"><div class="area-icon-sym">☕</div><div class="area-icon-title"><span data-lang="ja">湘南カフェ</span><span data-lang="en">Shonan Cafés</span><span data-lang="fr">Cafés Shonan</span><span data-lang="zh">湘南咖啡馆</span><span data-lang="ko">쇼난 카페</span><span data-lang="es">Cafés Shonan</span></div><div class="area-icon-body"><span data-lang="ja">徒歩圏内に多数</span><span data-lang="en">Many within walking distance</span><span data-lang="fr">Nombreux à pied</span><span data-lang="zh">步行范围内众多</span><span data-lang="ko">도보 거리에 다수</span><span data-lang="es">Varios a pie</span></div></div>
+      <div class="area-icon"><div class="area-icon-sym">🚉</div><div class="area-icon-title"><span data-lang="ja">鵠沼海岸駅</span><span data-lang="en">Station</span><span data-lang="fr">Gare</span><span data-lang="zh">车站</span><span data-lang="ko">역</span><span data-lang="es">Estación</span></div><div class="area-icon-body"><span data-lang="ja">徒歩3分・新宿60分</span><span data-lang="en">3 min walk · 60 min to Shinjuku</span><span data-lang="fr">3 min à pied · 60 min Shinjuku</span><span data-lang="zh">步行3分钟·新宿60分钟</span><span data-lang="ko">도보 3분·신주쿠 60분</span><span data-lang="es">3 min a pie · 60 min Shinjuku</span></div></div>
     </div>
   </div>
-</section>
-
-
-<!-- GALLERY -->
-<section class="gallery-section" id="gallery">
-  <div class="container">
-    <p class="section-label reveal"><span data-lang="ja">フォトギャラリー</span><span data-lang="en">Photo Gallery</span><span data-lang="fr">Galerie</span><span data-lang="zh">照片</span><span data-lang="ko">갤러리</span><span data-lang="es">Galería</span></p>
-    <h2 class="section-title reveal"><span data-lang="ja">実際の<em>お部屋</em>をご覧ください</span><span data-lang="en">See the <em>Space</em></span><span data-lang="fr">Découvrez <em>l'espace</em></span><span data-lang="zh">查看<em>房间</em></span><span data-lang="ko">실제 <em>공간</em>을 확인하세요</span><span data-lang="es">Descubra el <em>espacio</em></span></h2>
-    <div class="gallery-grid reveal">
-      <div class="gallery-item main-photo" onclick="openLightbox(0)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/7d298951-a0fe-45df-b4de-462db82771e4.jpg" alt="リビング" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">リビング</span><span data-lang="en">Living Room</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(1)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/3b3a1557-a434-41e5-b3cc-49b7d9dcddb4.jpg" alt="ダイニング・キッチン" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">ダイニング・キッチン</span><span data-lang="en">Dining & Kitchen</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(2)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/ec55d978-aa42-4046-b23e-555d997bc7bd.jpg" alt="寝室1（和室）" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">寝室1（和室）</span><span data-lang="en">Bedroom 1 (Tatami)</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(3)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/d2bf4813-6b91-4a34-afb2-472069bd7706.jpg" alt="寝室2" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">寝室2</span><span data-lang="en">Bedroom 2</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(4)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/16865317-2afa-4337-ab6b-2a266fb889a0.jpg" alt="寝室3（大部屋）" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">寝室3（大部屋）</span><span data-lang="en">Bedroom 3 (Large)</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(5)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/6560a48b-957d-43ac-8757-3c99f8f937c8.jpg" alt="和室" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">和室</span><span data-lang="en">Japanese Room</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(6)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/d70b1529-3d52-4090-ba96-f70c733d1551.jpg" alt="寝室4" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">寝室4</span><span data-lang="en">Bedroom 4</span></div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(7)">
-        <img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/4570f84e-890f-4857-ad4e-13f082f0a4a7.jpg" alt="キッチン" loading="lazy">
-        <div class="gallery-caption"><span data-lang="ja">キッチン</span><span data-lang="en">Kitchen</span></div>
-      </div>
-    </div>
+  <div class="area-photos">
+    <div class="area-photo"><img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/d70b1529-3d52-4090-ba96-f70c733d1551.jpg" alt="寝室3" loading="lazy"></div>
+    <div class="area-photo"><img src="https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/3b3a1557-a434-41e5-b3cc-49b7d9dcddb4.jpg" alt="ダイニング" loading="lazy"></div>
   </div>
 </section>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-prev" onclick="lbNav(-1);event.stopPropagation()">‹</button>
-  <img id="lightbox-img" src="" alt="">
-  <button class="lightbox-next" onclick="lbNav(1);event.stopPropagation()">›</button>
-</div>
-
-<script>
-var LB_IMGS=[
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/7d298951-a0fe-45df-b4de-462db82771e4.jpg"
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/3b3a1557-a434-41e5-b3cc-49b7d9dcddb4.jpg"
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/ec55d978-aa42-4046-b23e-555d997bc7bd.jpg"
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/d2bf4813-6b91-4a34-afb2-472069bd7706.jpg"
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/16865317-2afa-4337-ab6b-2a266fb889a0.jpg"
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/6560a48b-957d-43ac-8757-3c99f8f937c8.jpg"
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/d70b1529-3d52-4090-ba96-f70c733d1551.jpg"
-      "https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/4570f84e-890f-4857-ad4e-13f082f0a4a7.jpg"
-];
-var lbIdx=0;
-function openLightbox(i){lbIdx=i;document.getElementById('lightbox-img').src=LB_IMGS[i];document.getElementById('lightbox').style.display='flex';document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
-function closeLightbox(e){if(e&&e.target!==document.getElementById('lightbox')&&e.target!==document.querySelector('.lightbox-close'))return;document.getElementById('lightbox').style.display='none';document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-function lbNav(d){lbIdx=(lbIdx+d+LB_IMGS.length)%LB_IMGS.length;document.getElementById('lightbox-img').src=LB_IMGS[lbIdx];}
-document.addEventListener('keydown',function(e){var lb=document.getElementById('lightbox');if(!lb.classList.contains('open'))return;if(e.key==='Escape'){lb.style.display='none';lb.classList.remove('open');document.body.style.overflow='';}if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);});
-</script>
 
 <!-- REVIEWS -->
-<section class="reviews-bg" id="reviews">
-  <div class="container">
-    <p class="section-label reveal"><span data-lang="ja">ゲストの声</span><span data-lang="en">Guest Reviews</span><span data-lang="fr">Avis clients</span><span data-lang="zh">客人评价</span><span data-lang="ko">게스트 후기</span><span data-lang="es">Reseñas</span></p>
-    <h2 class="section-title reveal"><span data-lang="ja">実際に泊まった<em>ゲストの声</em></span><span data-lang="en"><em>What Guests</em> Are Saying</span><span data-lang="fr">Ce que disent <em>nos hôtes</em></span><span data-lang="zh">住过的<em>客人评价</em></span><span data-lang="ko">실제 게스트의 <em>솔직한 후기</em></span><span data-lang="es">Lo que dicen <em>nuestros huéspedes</em></span></h2>
-    <div class="divider reveal"></div>
-    <div class="reviews-grid">
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text"><span data-lang="ja">「駅チカで自転車も借りられて最高！家族8人でゆったり過ごせました。海も近くて子供たちも大喜び。また来年も来たいです。」</span><span data-lang="en">"Close to the station with free bikes — perfect! We had a wonderful time with 8 family members. The beach is nearby and the kids loved it!"</span><span data-lang="fr">"Proche de la gare avec des vélos gratuits — parfait! Nous avons passé un excellent séjour en famille de 8. Les enfants ont adoré la plage!"</span><span data-lang="zh">"离车站近，还能借自行车，太棒了！8个人一家子住得很宽敞舒适，海边也近，孩子们特别开心。"</span><span data-lang="ko">"역 가깝고 자전거도 빌릴 수 있어서 최고! 8명 가족이 여유롭게 지냈어요. 해변도 가깝고 아이들도 매우 좋아했어요."</span><span data-lang="es">"¡Cerca de la estación y con bicicletas gratis — perfecto! Pasamos un tiempo maravilloso con 8 familiares. ¡A los niños les encantó la playa!"</span></p>
-        <div class="review-author">Yuki · <span data-lang="ja">東京</span><span data-lang="en">Tokyo</span><span data-lang="fr">Tokyo</span><span data-lang="zh">东京</span><span data-lang="ko">도쿄</span><span data-lang="es">Tokio</span></div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text"><span data-lang="ja">「友人グループ6人で利用。キッチンが充実していて自炊も楽しめました。江の島も自転車で行けて大満足！」</span><span data-lang="en">"Six friends had a blast! The kitchen is well-equipped and cooking together was fun. We even biked to Enoshima!"</span><span data-lang="fr">"Six amis, un séjour inoubliable! La cuisine est bien équipée et nous avons même pédalé jusqu'à Enoshima!"</span><span data-lang="zh">"6个朋友一起玩，超开心！厨房设施齐全，一起做饭也很有趣。还骑车去了江之岛，非常满意！"</span><span data-lang="ko">"친구 6명이 함께 즐겼어요! 키친이 잘 갖춰져 있어서 요리도 재미있었어요. 자전거로 에노시마도 다녀왔어요!"</span><span data-lang="es">"¡Seis amigos, una experiencia increíble! La cocina está bien equipada y ¡hasta fuimos a Enoshima en bici!"</span></p>
-        <div class="review-author">Takeshi · <span data-lang="ja">神奈川</span><span data-lang="en">Kanagawa</span><span data-lang="fr">Kanagawa</span><span data-lang="zh">神奈川</span><span data-lang="ko">가나가와</span><span data-lang="es">Kanagawa</span></div>
-      </div>
-      <div class="review-rating-box reveal">
-        <div class="review-rating-num">5.0</div>
-        <div class="review-rating-label">
-          <span data-lang="ja">総合評価 / Airbnb</span>
-          <span data-lang="en">Overall / Airbnb</span>
-          <span data-lang="fr">Note globale / Airbnb</span>
-          <span data-lang="zh">综合评分 / Airbnb</span>
-          <span data-lang="ko">종합 평점 / Airbnb</span>
-          <span data-lang="es">Puntuación / Airbnb</span>
-        </div>
-        <div style="margin-top:1.5rem;font-size:0.78rem;color:rgba(255,255,255,0.7)">
-          <div style="margin-bottom:0.4rem">✓ <span data-lang="ja">清潔さ</span><span data-lang="en">Cleanliness</span><span data-lang="fr">Propreté</span><span data-lang="zh">清洁度</span><span data-lang="ko">청결도</span><span data-lang="es">Limpieza</span> ★★★★★</div>
-          <div style="margin-bottom:0.4rem">✓ <span data-lang="ja">コミュニケーション</span><span data-lang="en">Communication</span><span data-lang="fr">Communication</span><span data-lang="zh">沟通</span><span data-lang="ko">소통</span><span data-lang="es">Comunicación</span> ★★★★★</div>
-          <div>✓ <span data-lang="ja">ロケーション</span><span data-lang="en">Location</span><span data-lang="fr">Emplacement</span><span data-lang="zh">位置</span><span data-lang="ko">위치</span><span data-lang="es">Ubicación</span> ★★★★★</div>
-        </div>
-      </div>
+<section class="reviews-sec" id="reviews">
+  <p class="sec-label reveal"><span data-lang="ja">ゲストレビュー</span><span data-lang="en">Guest Reviews</span><span data-lang="fr">Avis clients</span><span data-lang="zh">客人评价</span><span data-lang="ko">게스트 리뷰</span><span data-lang="es">Reseñas</span></p>
+  <h2 class="sec-title reveal"><span data-lang="ja">実際に泊まった<em>ゲストの声</em></span><span data-lang="en">What our <em>guests say</em></span><span data-lang="fr">Ce que disent <em>nos hôtes</em></span><span data-lang="zh">住过的<em>客人说</em></span><span data-lang="ko">실제 게스트의 <em>목소리</em></span><span data-lang="es">Lo que dicen <em>nuestros huéspedes</em></span></h2>
+  <div class="score-row reveal">
+    <div class="score-big">
+      <div class="score-num">5.0</div>
+      <div class="score-stars">★★★★★</div>
+      <div class="score-cnt">Airbnb</div>
     </div>
+    <div class="bars">
+      <div class="bar-row"><span class="bar-lbl"><span data-lang="ja">清潔さ</span><span data-lang="en">Cleanliness</span><span data-lang="fr">Propreté</span><span data-lang="zh">清洁</span><span data-lang="ko">청결</span><span data-lang="es">Limpieza</span></span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">5.0</span></div>
+      <div class="bar-row"><span class="bar-lbl"><span data-lang="ja">コミュニケーション</span><span data-lang="en">Communication</span><span data-lang="fr">Communication</span><span data-lang="zh">沟通</span><span data-lang="ko">소통</span><span data-lang="es">Comunicación</span></span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">5.0</span></div>
+      <div class="bar-row"><span class="bar-lbl"><span data-lang="ja">ロケーション</span><span data-lang="en">Location</span><span data-lang="fr">Emplacement</span><span data-lang="zh">位置</span><span data-lang="ko">위치</span><span data-lang="es">Ubicación</span></span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">5.0</span></div>
+      <div class="bar-row"><span class="bar-lbl"><span data-lang="ja">チェックイン</span><span data-lang="en">Check-in</span><span data-lang="fr">Arrivée</span><span data-lang="zh">入住</span><span data-lang="ko">체크인</span><span data-lang="es">Llegada</span></span><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-score">5.0</span></div>
+    </div>
+  </div>
+  <div class="rv-grid reveal">
+    <div class="rv-card"><div class="rv-stars">★★★★★</div><p class="rv-text"><span data-lang="ja">「駅チカで自転車も無料で借りられて最高でした。8人で広々使えて、子供たちも大喜び。来年もまた来たいです！」</span><span data-lang="en">"Close to the station with free bikes — amazing! 8 of us had plenty of space and the kids loved it. Coming back next year!"</span><span data-lang="fr">"Proche de la gare avec des vélos gratuits — incroyable ! Nous étions 8 avec de l'espace pour tous. On revient l'année prochaine !"</span><span data-lang="zh">"离车站近，自行车免费，太棒了！8个人住很宽敞，孩子们特别高兴，明年还来！"</span><span data-lang="ko">"역 가깝고 자전거 무료대여 최고였어요. 8명이 넓게 사용할 수 있었고 아이들도 정말 좋아했습니다. 내년에 또 올게요!"</span><span data-lang="es">"Cerca de la estación y con bicis gratuitas — ¡increíble! Los 8 tuvimos mucho espacio y los niños lo adoraron. ¡Volvemos el año que viene!"</span></p><div class="rv-author">Yuki · <span data-lang="ja">東京より</span><span data-lang="en">Tokyo</span><span data-lang="fr">Tokyo</span><span data-lang="zh">东京</span><span data-lang="ko">도쿄</span><span data-lang="es">Tokio</span></div></div>
+    <div class="rv-card"><div class="rv-stars">★★★★★</div><p class="rv-text"><span data-lang="ja">「友人6人で利用。キッチンが充実していて自炊も楽しく、江の島まで自転車で行けたのが最高の思い出に。ホストの対応も丁寧でした。」</span><span data-lang="en">"Six friends, great memories! The kitchen was well-stocked and we biked all the way to Enoshima. The host was wonderfully attentive."</span><span data-lang="fr">"Six amis, de super souvenirs ! Cuisine bien équipée et on a pédalé jusqu'à Enoshima. L'hôte était très attentionné."</span><span data-lang="zh">"6个朋友一起住，超棒！厨房设施齐全，自炊很开心，骑车到江之岛成了最美好的回忆。房东也很体贴。"</span><span data-lang="ko">"친구 6명이서 이용했어요. 키친이 잘 갖춰져 있어서 요리도 즐거웠고, 자전거로 에노시마까지 간 것이 최고의 추억이 됐어요."</span><span data-lang="es">"Seis amigos, ¡grandes recuerdos! La cocina estaba bien equipada y pedaleamos hasta Enoshima. El anfitrión fue muy atento."</span></p><div class="rv-author">Takeshi · <span data-lang="ja">神奈川より</span><span data-lang="en">Kanagawa</span><span data-lang="fr">Kanagawa</span><span data-lang="zh">神奈川</span><span data-lang="ko">가나가와</span><span data-lang="es">Kanagawa</span></div></div>
+    <div class="rv-card"><div class="rv-stars">★★★★★</div><p class="rv-text"><span data-lang="ja">「和室も洋室もあって、それぞれの寝室が広くて快適。朝は海岸を散歩して、夜は大人数でご飯を食べて最高でした。また絶対に泊まります。」</span><span data-lang="en">"Both tatami and western-style rooms, all spacious and comfortable. Morning walks on the beach, big dinners together — absolutely coming back."</span><span data-lang="fr">"Chambres tatami et occidentales, toutes spacieuses. Promenades matinales sur la plage, grands dîners ensemble — on revient sans hésiter."</span><span data-lang="zh">"和室洋室都有，每个房间都很宽敞舒适。早晨在海边散步，晚上大家一起吃饭，太棒了。下次一定还来。"</span><span data-lang="ko">"다다미방과 양실 모두 있고 각 침실이 넓고 쾌적했어요. 아침 해변 산책, 저녁 단체 식사까지 완벽했습니다. 꼭 다시 올게요."</span><span data-lang="es">"Habitaciones tatami y occidentales, todas amplias y cómodas. Paseos matutinos y cenas juntos — volvemos sin dudarlo."</span></p><div class="rv-author">Haruka · <span data-lang="ja">大阪より</span><span data-lang="en">Osaka</span><span data-lang="fr">Osaka</span><span data-lang="zh">大阪</span><span data-lang="ko">오사카</span><span data-lang="es">Osaka</span></div></div>
   </div>
 </section>
 
-<!-- HOST -->
-<section style="background:var(--white);padding:5rem 0">
-  <div class="container">
-    <p class="section-label reveal"><span data-lang="ja">ホストについて</span><span data-lang="en">Your Host</span><span data-lang="fr">Votre hôte</span><span data-lang="zh">关于房东</span><span data-lang="ko">호스트 소개</span><span data-lang="es">Tu anfitrión</span></p>
-    <div class="host-wrap reveal">
-      <div class="host-avatar">😊</div>
-      <div>
-        <div class="host-name">Kiwa</div>
-        <div class="host-title"><span data-lang="ja">スーパーホスト · 湘南在住</span><span data-lang="en">Superhost · Based in Shonan</span><span data-lang="fr">Superhôte · Basé à Shonan</span><span data-lang="zh">超赞房东 · 湘南本地人</span><span data-lang="ko">슈퍼호스트 · 쇼난 거주</span><span data-lang="es">Superanfitrión · Shonan</span></div>
-        <p class="host-bio">
-          <span data-lang="ja">湘南に長年暮らすホストのKiwaです。鵠沼の魅力を存分に楽しんでいただけるよう、自転車の手配から周辺スポットのご案内まで、丁寧にサポートいたします。ご不明な点はお気軽にどうぞ。</span>
-          <span data-lang="en">I'm Kiwa, a long-time Shonan resident. I'm here to help you make the most of Kugenuma — from bike arrangements to local spot recommendations. Feel free to reach out anytime!</span>
-          <span data-lang="fr">Je suis Kiwa, résident de longue date à Shonan. Je suis là pour vous aider à profiter au maximum de Kugenuma — des vélos aux recommandations locales. N'hésitez pas à me contacter!</span>
-          <span data-lang="zh">我是Kiwa，在湘南生活多年的房东。从自行车安排到周边景点推荐，我会尽心为您服务。有任何问题请随时联系！</span>
-          <span data-lang="ko">저는 쇼난에서 오래 살고 있는 호스트 Kiwa입니다. 자전거 준비부터 주변 명소 안내까지 구게누마를 최대한 즐길 수 있도록 도와드리겠습니다. 편하게 연락 주세요!</span>
-          <span data-lang="es">Soy Kiwa, residente de larga data en Shonan. Estoy aquí para ayudarte a disfrutar al máximo de Kugenuma — desde bicicletas hasta recomendaciones locales. ¡Contáctame cuando quieras!</span>
-        </p>
-      </div>
-    </div>
+<!-- CHECK-IN INFO -->
+<section class="ci-sec">
+  <p class="sec-label reveal"><span data-lang="ja">ご利用案内</span><span data-lang="en">Stay Info</span><span data-lang="fr">Informations</span><span data-lang="zh">入住须知</span><span data-lang="ko">이용 안내</span><span data-lang="es">Información</span></p>
+  <h2 class="sec-title reveal"><span data-lang="ja">ご予約から<em>チェックアウト</em>まで</span><span data-lang="en">From booking to <em>checkout</em></span><span data-lang="fr">De la réservation au <em>départ</em></span><span data-lang="zh">从预订到<em>退房</em></span><span data-lang="ko">예약부터 <em>체크아웃</em>까지</span><span data-lang="es">Desde la reserva hasta el <em>checkout</em></span></h2>
+  <div class="ci-grid reveal">
+    <div class="ci-card"><div class="ci-icon">📅</div><div class="ci-label"><span data-lang="ja">チェックイン</span><span data-lang="en">CHECK-IN</span><span data-lang="fr">ARRIVÉE</span><span data-lang="zh">入住</span><span data-lang="ko">체크인</span><span data-lang="es">LLEGADA</span></div><div class="ci-val">15:00〜</div><div class="ci-note"><span data-lang="ja">セルフチェックイン対応。スマートロックで鍵のやり取り不要。</span><span data-lang="en">Self check-in via smart lock. No key handover needed.</span></div></div>
+    <div class="ci-card"><div class="ci-icon">🌅</div><div class="ci-label"><span data-lang="ja">チェックアウト</span><span data-lang="en">CHECK-OUT</span><span data-lang="fr">DÉPART</span><span data-lang="zh">退房</span><span data-lang="ko">체크아웃</span><span data-lang="es">SALIDA</span></div><div class="ci-val">〜11:00</div><div class="ci-note"><span data-lang="ja">11時までにチェックアウト。レイトチェックアウトはお問い合わせください。</span><span data-lang="en">By 11:00. Late checkout available on request.</span></div></div>
+    <div class="ci-card"><div class="ci-icon">🚭</div><div class="ci-label"><span data-lang="ja">禁煙</span><span data-lang="en">NO SMOKING</span><span data-lang="fr">NON-FUMEUR</span><span data-lang="zh">禁烟</span><span data-lang="ko">금연</span><span data-lang="es">NO FUMAR</span></div><div class="ci-val"><span data-lang="ja">全館禁煙</span><span data-lang="en">Entire place</span><span data-lang="fr">Partout</span><span data-lang="zh">全栋禁烟</span><span data-lang="ko">전체 금연</span><span data-lang="es">Todo el lugar</span></div><div class="ci-note"><span data-lang="ja">室内・バルコニー含む全スペース禁煙。</span><span data-lang="en">Including balcony and all indoor areas.</span></div></div>
+    <div class="ci-card"><div class="ci-icon">🐾</div><div class="ci-label"><span data-lang="ja">ペット</span><span data-lang="en">PETS</span><span data-lang="fr">ANIMAUX</span><span data-lang="zh">宠物</span><span data-lang="ko">반려동물</span><span data-lang="es">MASCOTAS</span></div><div class="ci-val"><span data-lang="ja">要相談</span><span data-lang="en">On request</span><span data-lang="fr">Sur demande</span><span data-lang="zh">需协商</span><span data-lang="ko">상담 필요</span><span data-lang="es">Consultar</span></div><div class="ci-note"><span data-lang="ja">ペット同伴をご希望の場合は事前にご相談ください。</span><span data-lang="en">Please inquire in advance about bringing pets.</span></div></div>
   </div>
 </section>
 
 <!-- ACCESS -->
-<section id="access" style="background:var(--cream);padding:5rem 0">
-  <div class="container">
-    <p class="section-label reveal"><span data-lang="ja">アクセス</span><span data-lang="en">Access</span><span data-lang="fr">Accès</span><span data-lang="zh">交通</span><span data-lang="ko">교통</span><span data-lang="es">Acceso</span></p>
-    <h2 class="section-title reveal"><span data-lang="ja">都心から<em>60分</em>の湘南</span><span data-lang="en"><em>60 Minutes</em> from Central Tokyo</span><span data-lang="fr">À <em>60 minutes</em> du centre de Tokyo</span><span data-lang="zh">距东京市中心<em>60分钟</em></span><span data-lang="ko">도쿄 중심에서 <em>60분</em></span><span data-lang="es">A <em>60 minutos</em> del centro de Tokio</span></h2>
-    <div class="divider reveal"></div>
-    <div class="access-grid">
-      <div class="reveal">
-        <ul class="access-list">
-          <li><span class="access-icon">🚉</span><span><strong><span data-lang="ja">小田急線「鵠沼海岸」駅</span><span data-lang="en">Kugenuma-Kaigan Stn (Odakyu)</span><span data-lang="fr">Gare Kugenuma-Kaigan (Odakyu)</span><span data-lang="zh">小田急线"鵠沼海岸"站</span><span data-lang="ko">오다큐선 '구게누마카이간'역</span><span data-lang="es">Est. Kugenuma-Kaigan (Odakyu)</span></strong><br><span data-lang="ja">徒歩3分</span><span data-lang="en">3 min walk</span><span data-lang="fr">3 min à pied</span><span data-lang="zh">步行3分钟</span><span data-lang="ko">도보 3분</span><span data-lang="es">3 min a pie</span></span></li>
-          <li><span class="access-icon">🗼</span><span><strong><span data-lang="ja">新宿駅から</span><span data-lang="en">From Shinjuku</span><span data-lang="fr">Depuis Shinjuku</span><span data-lang="zh">从新宿出发</span><span data-lang="ko">신주쿠에서</span><span data-lang="es">Desde Shinjuku</span></strong><br><span data-lang="ja">小田急線で約60分（片瀬江ノ島行き）</span><span data-lang="en">~60 min by Odakyu Line (to Katase-Enoshima)</span><span data-lang="fr">~60 min en Odakyu (vers Katase-Enoshima)</span><span data-lang="zh">小田急线约60分钟（片濑江之岛方向）</span><span data-lang="ko">오다큐선으로 약 60분 (가타세에노시마 방면)</span><span data-lang="es">~60 min en Odakyu (hacia Katase-Enoshima)</span></span></li>
-          <li><span class="access-icon">🌊</span><span><strong><span data-lang="ja">鵠沼海岸まで</span><span data-lang="en">To Kugenuma Beach</span><span data-lang="fr">Jusqu'à la plage</span><span data-lang="zh">到鵠沼海滩</span><span data-lang="ko">구게누마 해변까지</span><span data-lang="es">Hasta la playa</span></strong><br><span data-lang="ja">自転車で約5分</span><span data-lang="en">~5 min by bike (free)</span><span data-lang="fr">~5 min à vélo (gratuit)</span><span data-lang="zh">骑车约5分钟（免费）</span><span data-lang="ko">자전거로 약 5분 (무료)</span><span data-lang="es">~5 min en bici (gratis)</span></span></li>
-          <li><span class="access-icon">📍</span><span><strong><span data-lang="ja">住所</span><span data-lang="en">Address</span><span data-lang="fr">Adresse</span><span data-lang="zh">地址</span><span data-lang="ko">주소</span><span data-lang="es">Dirección</span></strong><br><span data-lang="ja">神奈川県藤沢市鵠沼松が岡2-1-14 フェイムテラス</span><span data-lang="en">Fame Terrace, 2-1-14 Kugenuma-Matsugaoka, Fujisawa, Kanagawa</span><span data-lang="fr">Fame Terrace, 2-1-14 Kugenuma-Matsugaoka, Fujisawa</span><span data-lang="zh">神奈川县藤泽市鵠沼松之岗2-1-14 名声台</span><span data-lang="ko">가나가와현 후지사와시 구게누마마츠가오카 2-1-14 페임테라스</span><span data-lang="es">Fame Terrace, 2-1-14 Kugenuma-Matsugaoka, Fujisawa</span></span></li>
-      <li><span class="access-icon">🗾</span><span><strong><span data-lang="ja">江の島まで</span><span data-lang="en">To Enoshima</span><span data-lang="fr">Vers Enoshima</span><span data-lang="zh">到江之岛</span><span data-lang="ko">에노시마까지</span><span data-lang="es">Hasta Enoshima</span></strong><br><span data-lang="ja">自転車で約15分</span><span data-lang="en">~15 min by bike</span><span data-lang="fr">~15 min à vélo</span><span data-lang="zh">骑车约15分钟</span><span data-lang="ko">자전거로 약 15분</span><span data-lang="es">~15 min en bici</span></span></li>
-        </ul>
-      </div>
-      <div class="reveal" style="border-radius:6px;overflow:hidden;height:280px;box-shadow:0 4px 16px rgba(78,114,8,0.12)">
-        <iframe
-          src="https://www.google.com/maps?q=神奈川県藤沢市鵠沼松が岡2-1-14+フェイムテラス&output=embed&z=16&hl=ja"
-          width="100%" height="100%" style="border:0;display:block"
-          allowfullscreen loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
+<section class="access-wrap" id="access">
+  <div class="access-map">
+    <iframe src="https://www.google.com/maps?q=神奈川県藤沢市鵠沼松が岡2-1-14+フェイムテラス&output=embed&z=16&hl=ja" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2 class="cta-title reveal">
-      <span data-lang="ja">湘南の海と暮らす、<br>特別な時間を</span>
-      <span data-lang="en">Your Perfect <br>Shonan Getaway Awaits</span>
-      <span data-lang="fr">Votre escapade idéale<br>à Shonan vous attend</span>
-      <span data-lang="zh">在湘南海边<br>享受特别的时光</span>
-      <span data-lang="ko">쇼난의 바다와 함께하는<br>특별한 시간</span>
-      <span data-lang="es">Tu escapada perfecta<br>en Shonan te espera</span>
-    </h2>
-    <p class="cta-sub reveal">
-      <span data-lang="ja">自転車で海へ、電車で都心へ。どちらも5分以内の理想のロケーション。</span>
-      <span data-lang="en">Beach by bike, Tokyo by train. The ideal location for exploring Shonan and beyond.</span>
-      <span data-lang="fr">La plage à vélo, Tokyo en train. L'emplacement idéal pour explorer Shonan et au-delà.</span>
-      <span data-lang="zh">骑车去海边，乘车到都心。自行车和电车都在5分钟内，地理位置绝佳。</span>
-      <span data-lang="ko">자전거로 해변까지, 전철로 도심까지. 두 곳 모두 5분 이내의 이상적인 위치.</span>
-      <span data-lang="es">La playa en bici, Tokio en tren. La ubicación ideal para explorar Shonan y más allá.</span>
-    </p>
-    <button class="cta-btn reveal" onclick="openModal()">
-      <span data-lang="ja">空き状況を確認して予約する</span>
-      <span data-lang="en">Check Availability & Book</span>
-      <span data-lang="fr">Vérifier et réserver</span>
-      <span data-lang="zh">查看空房并预订</span>
-      <span data-lang="ko">예약 가능 확인 및 예약</span>
-      <span data-lang="es">Ver disponibilidad y reservar</span>
-    </button>
+  <div class="access-info">
+    <p class="sec-label"><span data-lang="ja">アクセス</span><span data-lang="en">Access</span><span data-lang="fr">Accès</span><span data-lang="zh">交通</span><span data-lang="ko">교통</span><span data-lang="es">Acceso</span></p>
+    <h2 class="sec-title"><span data-lang="ja">都心から<em>60分</em>の湘南</span><span data-lang="en"><em>60 min</em> from Tokyo</span><span data-lang="fr">À <em>60 min</em> de Tokyo</span><span data-lang="zh">距东京<em>60分钟</em></span><span data-lang="ko">도쿄에서 <em>60분</em></span><span data-lang="es">A <em>60 min</em> de Tokio</span></h2>
+    <ul class="ac-list">
+      <li><span class="ac-type"><span data-lang="ja">住所</span><span data-lang="en">ADDRESS</span><span data-lang="fr">ADRESSE</span><span data-lang="zh">地址</span><span data-lang="ko">주소</span><span data-lang="es">DIRECCIÓN</span></span><span class="ac-val"><strong>神奈川県藤沢市鵠沼松が岡2-1-14<br>フェイムテラス</strong></span></li>
+      <li><span class="ac-type"><span data-lang="ja">最寄り駅</span><span data-lang="en">STATION</span><span data-lang="fr">GARE</span><span data-lang="zh">最近车站</span><span data-lang="ko">역</span><span data-lang="es">ESTACIÓN</span></span><span class="ac-val"><strong><span data-lang="ja">小田急線「鵠沼海岸」駅</span><span data-lang="en">Kugenuma-Kaigan (Odakyu)</span><span data-lang="fr">Kugenuma-Kaigan (Odakyu)</span><span data-lang="zh">小田急线"鵠沼海岸"站</span><span data-lang="ko">오다큐선 구게누마카이간역</span><span data-lang="es">Kugenuma-Kaigan (Odakyu)</span></strong><br><span data-lang="ja">徒歩3分</span><span data-lang="en">3 min walk</span><span data-lang="fr">3 min à pied</span><span data-lang="zh">步行3分钟</span><span data-lang="ko">도보 3분</span><span data-lang="es">3 min a pie</span></span></li>
+      <li><span class="ac-type"><span data-lang="ja">新宿から</span><span data-lang="en">SHINJUKU</span><span data-lang="fr">SHINJUKU</span><span data-lang="zh">新宿</span><span data-lang="ko">신주쿠</span><span data-lang="es">SHINJUKU</span></span><span class="ac-val"><span data-lang="ja">小田急線で約60分</span><span data-lang="en">~60 min by Odakyu Line</span><span data-lang="fr">~60 min en Odakyu</span><span data-lang="zh">小田急线约60分钟</span><span data-lang="ko">오다큐선으로 약 60분</span><span data-lang="es">~60 min en Odakyu</span></span></li>
+      <li><span class="ac-type"><span data-lang="ja">海まで</span><span data-lang="en">BEACH</span><span data-lang="fr">PLAGE</span><span data-lang="zh">海边</span><span data-lang="ko">해변</span><span data-lang="es">PLAYA</span></span><span class="ac-val"><span data-lang="ja">自転車で約5分（無料レンタル）</span><span data-lang="en">~5 min by bike (free rental)</span><span data-lang="fr">~5 min à vélo (gratuit)</span><span data-lang="zh">骑车约5分钟（免费租借）</span><span data-lang="ko">자전거로 약 5분（무료 대여）</span><span data-lang="es">~5 min en bici (gratuita)</span></span></li>
+      <li><span class="ac-type"><span data-lang="ja">江の島</span><span data-lang="en">ENOSHIMA</span><span data-lang="fr">ENOSHIMA</span><span data-lang="zh">江之岛</span><span data-lang="ko">에노시마</span><span data-lang="es">ENOSHIMA</span></span><span class="ac-val"><span data-lang="ja">自転車で約15分</span><span data-lang="en">~15 min by bike</span><span data-lang="fr">~15 min à vélo</span><span data-lang="zh">骑车约15分钟</span><span data-lang="ko">자전거로 약 15분</span><span data-lang="es">~15 min en bici</span></span></li>
+    </ul>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">鵠沼 <em>Hideaway</em></div>
-  <p class="footer-sub" style="margin-top:0.4rem">神奈川県藤沢市鵠沼松が岡2-1-14 フェイムテラス · Japan</p>
-  <p class="footer-sub" style="margin-top:0.8rem">© 2025 Kugenuma Hideaway · <a href="https://www.airbnb.jp/rooms/1200599961350755816" target="_blank" style="color:rgba(255,255,255,0.35);text-decoration:none">Airbnb</a></p>
+  <div>
+    <div class="footer-brand">鵠沼 <em>Hideaway</em></div>
+    <div class="footer-sub">神奈川県藤沢市鵠沼松が岡2-1-14 フェイムテラス · Japan</div>
+    <div class="footer-sub" style="margin-top:.5rem">© 2025 Kugenuma Hideaway · <a href="https://www.airbnb.jp/rooms/1200599961350755816" target="_blank" style="color:rgba(255,255,255,.3);text-decoration:none">Airbnb</a></div>
+  </div>
+  <div class="footer-links">
+    <a href="#top"><span data-lang="ja">トップへ</span><span data-lang="en">Top</span><span data-lang="fr">Haut</span><span data-lang="zh">顶部</span><span data-lang="ko">맨 위로</span><span data-lang="es">Inicio</span></a>
+    <a href="#rooms"><span data-lang="ja">お部屋</span><span data-lang="en">Rooms</span><span data-lang="fr">Chambres</span><span data-lang="zh">房间</span><span data-lang="ko">객실</span><span data-lang="es">Habitaciones</span></a>
+    <a href="#access"><span data-lang="ja">アクセス</span><span data-lang="en">Access</span><span data-lang="fr">Accès</span><span data-lang="zh">交通</span><span data-lang="ko">교통</span><span data-lang="es">Acceso</span></a>
+    <a href="javascript:openModal()"><span data-lang="ja">予約する</span><span data-lang="en">Book</span><span data-lang="fr">Réserver</span><span data-lang="zh">预订</span><span data-lang="ko">예약</span><span data-lang="es">Reservar</span></a>
+  </div>
 </footer>
 
-<!-- BOOKING MODAL -->
-<div class="modal-bg" id="modal-bg" onclick="handleBgClick(event)">
-  <div class="modal" onclick="event.stopPropagation()">
-    <div class="modal-header">
-      <span class="modal-title">
-        <span data-lang="ja">ご予約</span><span data-lang="en">Book Your Stay</span><span data-lang="fr">Réservation</span><span data-lang="zh">预订</span><span data-lang="ko">예약하기</span><span data-lang="es">Reservar</span>
-      </span>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-steps">
-      <div class="modal-step active">
-        <span data-lang="ja">① 日程</span><span data-lang="en">① Dates</span><span data-lang="fr">① Dates</span><span data-lang="zh">① 日期</span><span data-lang="ko">① 날짜</span><span data-lang="es">① Fechas</span>
-      </div>
-      <div class="modal-step">
-        <span data-lang="ja">② お客様情報</span><span data-lang="en">② Guest Info</span><span data-lang="fr">② Coordonnées</span><span data-lang="zh">② 客户信息</span><span data-lang="ko">② 고객 정보</span><span data-lang="es">② Datos</span>
-      </div>
-      <div class="modal-step">
-        <span data-lang="ja">③ お支払い</span><span data-lang="en">③ Payment</span><span data-lang="fr">③ Paiement</span><span data-lang="zh">③ 支付</span><span data-lang="ko">③ 결제</span><span data-lang="es">③ Pago</span>
-      </div>
-    </div>
-    <div class="modal-body">
-      <!-- STEP 1: DATES -->
-      <div class="step-panel active" id="step-panel-1">
-        <div class="modal-section">
-          <p class="modal-sec-title"><span data-lang="ja">チェックイン・チェックアウト日を選択</span><span data-lang="en">Select Check-in & Check-out</span><span data-lang="fr">Choisissez vos dates</span><span data-lang="zh">选择入住和退房日期</span><span data-lang="ko">체크인·체크아웃 날짜 선택</span><span data-lang="es">Seleccione fechas</span></p>
-          <div class="cal-nav">
-            <button class="cal-btn" onclick="prevMonth()">‹</button>
-            <span class="cal-month" id="cal-month-label"></span>
-            <button class="cal-btn" onclick="nextMonth()">›</button>
-          </div>
-          <div class="cal-grid" id="cal-grid"></div>
-          <div class="cal-legend">
-            <span><span class="cal-legend-dot" style="background:var(--em)"></span><span data-lang="ja">選択中</span><span data-lang="en">Selected</span><span data-lang="fr">Sélectionné</span><span data-lang="zh">已选</span><span data-lang="ko">선택됨</span><span data-lang="es">Selec.</span></span>
-            <span><span class="cal-legend-dot" style="background:var(--em-pale)"></span><span data-lang="ja">滞在中</span><span data-lang="en">In range</span><span data-lang="fr">En séjour</span><span data-lang="zh">在范围内</span><span data-lang="ko">기간 내</span><span data-lang="es">En rango</span></span>
-            <span><span class="cal-legend-dot" style="background:rgba(78,114,8,0.08)"></span><span data-lang="ja">予約済み</span><span data-lang="en">Booked</span><span data-lang="fr">Réservé</span><span data-lang="zh">已预订</span><span data-lang="ko">예약됨</span><span data-lang="es">Reservado</span></span>
-          </div>
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModal()">
+<div class="modal">
+  <div class="modal-head">
+    <span class="modal-title"><span data-lang="ja">ご予約</span><span data-lang="en">Book Your Stay</span><span data-lang="fr">Réservation</span><span data-lang="zh">预订</span><span data-lang="ko">예약하기</span><span data-lang="es">Reservar</span></span>
+    <button class="modal-x" onclick="closeModal()">✕</button>
+  </div>
+  <div class="modal-steps">
+    <div class="modal-step active" id="ms1"><span class="step-num">1</span><span data-lang="ja">日程</span><span data-lang="en">Dates</span><span data-lang="fr">Dates</span><span data-lang="zh">日期</span><span data-lang="ko">날짜</span><span data-lang="es">Fechas</span></div>
+    <div class="modal-step" id="ms2"><span class="step-num">2</span><span data-lang="ja">お客様情報</span><span data-lang="en">Guest Info</span><span data-lang="fr">Coordonnées</span><span data-lang="zh">客户信息</span><span data-lang="ko">고객 정보</span><span data-lang="es">Datos</span></div>
+    <div class="modal-step" id="ms3"><span class="step-num">3</span><span data-lang="ja">お支払い</span><span data-lang="en">Payment</span><span data-lang="fr">Paiement</span><span data-lang="zh">支付</span><span data-lang="ko">결제</span><span data-lang="es">Pago</span></div>
+  </div>
+  <div class="modal-body">
+    <!-- STEP 1 -->
+    <div class="step-panel active" id="sp1">
+      <p class="modal-sec-title"><span data-lang="ja">チェックイン・チェックアウト日を選択</span><span data-lang="en">Select your dates</span><span data-lang="fr">Choisissez vos dates</span><span data-lang="zh">选择日期</span><span data-lang="ko">날짜 선택</span><span data-lang="es">Seleccione fechas</span></p>
+      <div class="cal-wrap">
+        <div class="cal-header">
+          <button class="cal-nav-btn" onclick="calPrev()">‹</button>
+          <span class="cal-month-lbl" id="cal-lbl"></span>
+          <button class="cal-nav-btn" onclick="calNext()">›</button>
         </div>
-        <div class="total-box" id="total-box-1" style="display:none">
-          <div>
-            <div class="total-breakdown" id="total-breakdown-1"></div>
-          </div>
-          <div style="text-align:right">
-            <div class="total-amount" id="total-amount-1">¥ —</div>
-            <div class="total-nights" id="total-nights-1"></div>
-          </div>
-        </div>
-        <div class="modal-btn-row">
-          <button class="btn-next" onclick="nextStep(1)">
-            <span data-lang="ja">次へ：お客様情報</span><span data-lang="en">Next: Guest Info</span><span data-lang="fr">Suivant: Coordonnées</span><span data-lang="zh">下一步：客户信息</span><span data-lang="ko">다음: 고객 정보</span><span data-lang="es">Siguiente: Datos</span>
-          </button>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-legend">
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--mc)"></div><span data-lang="ja">選択</span><span data-lang="en">Selected</span></div>
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:var(--mc-pale)"></div><span data-lang="ja">期間内</span><span data-lang="en">In range</span></div>
+          <div class="cal-legend-item"><div class="cal-legend-dot" style="background:#eee"></div><span data-lang="ja">予約済</span><span data-lang="en">Booked</span></div>
         </div>
       </div>
-
-      <!-- STEP 2: GUEST INFO -->
-      <div class="step-panel" id="step-panel-2">
-        <div class="modal-section">
-          <p class="modal-sec-title"><span data-lang="ja">お客様情報</span><span data-lang="en">Guest Information</span><span data-lang="fr">Informations client</span><span data-lang="zh">客户信息</span><span data-lang="ko">고객 정보</span><span data-lang="es">Información del huésped</span></p>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label"><span data-lang="ja">姓</span><span data-lang="en">Last Name</span><span data-lang="fr">Nom</span><span data-lang="zh">姓氏</span><span data-lang="ko">성</span><span data-lang="es">Apellido</span></label>
-              <input type="text" class="form-ctrl" id="guest-lname" placeholder="Yamada">
-            </div>
-            <div class="form-group">
-              <label class="form-label"><span data-lang="ja">名</span><span data-lang="en">First Name</span><span data-lang="fr">Prénom</span><span data-lang="zh">名字</span><span data-lang="ko">이름</span><span data-lang="es">Nombre</span></label>
-              <input type="text" class="form-ctrl" id="guest-fname" placeholder="Taro">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-ctrl" id="guest-email" placeholder="example@email.com">
-          </div>
-          <div class="form-group">
-            <label class="form-label"><span data-lang="ja">人数</span><span data-lang="en">Guests</span><span data-lang="fr">Personnes</span><span data-lang="zh">人数</span><span data-lang="ko">인원</span><span data-lang="es">Huéspedes</span></label>
-            <select class="form-ctrl" id="guest-count">
-              <option value="1">1</option><option value="2">2</option><option value="3">3</option>
-              <option value="4">4</option><option value="5">5</option><option value="6">6</option>
-              <option value="7">7</option><option value="8">8</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label"><span data-lang="ja">ご要望・備考（任意）</span><span data-lang="en">Special requests (optional)</span><span data-lang="fr">Demandes spéciales (facultatif)</span><span data-lang="zh">特殊要求（可选）</span><span data-lang="ko">특별 요청 (선택)</span><span data-lang="es">Peticiones especiales (opcional)</span></label>
-            <input type="text" class="form-ctrl" id="guest-notes">
-          </div>
-        </div>
+      <div id="total-box-1" style="display:none">
         <div class="total-box">
-          <div><div class="total-breakdown" id="total-breakdown-2"></div></div>
-          <div style="text-align:right">
-            <div class="total-amount summary-total">¥ —</div>
-            <div class="total-nights summary-nights"></div>
+          <div class="total-box-top">
+            <div><div class="total-label"><span data-lang="ja">合計金額</span><span data-lang="en">TOTAL</span><span data-lang="fr">TOTAL</span><span data-lang="zh">合计</span><span data-lang="ko">합계</span><span data-lang="es">TOTAL</span></div><div class="total-nights" id="t1-nights"></div></div>
+            <div class="total-amount" id="t1-amount">¥—</div>
           </div>
-        </div>
-        <div class="modal-btn-row">
-          <button class="btn-next" onclick="nextStep(2)"><span data-lang="ja">次へ：お支払い</span><span data-lang="en">Next: Payment</span><span data-lang="fr">Suivant: Paiement</span><span data-lang="zh">下一步：支付</span><span data-lang="ko">다음: 결제</span><span data-lang="es">Siguiente: Pago</span></button>
-          <button class="btn-back" onclick="goStep(1)"><span data-lang="ja">← 日程に戻る</span><span data-lang="en">← Back to Dates</span><span data-lang="fr">← Retour aux dates</span><span data-lang="zh">← 返回日期</span><span data-lang="ko">← 날짜로</span><span data-lang="es">← Volver a fechas</span></button>
+          <div class="total-breakdown" id="t1-breakdown"></div>
         </div>
       </div>
-
-      <!-- STEP 3: PAYMENT -->
-      <div class="step-panel" id="step-panel-3">
-        <div class="modal-section">
-          <p class="modal-sec-title"><span data-lang="ja">ご予約内容の確認</span><span data-lang="en">Booking Summary</span><span data-lang="fr">Récapitulatif</span><span data-lang="zh">预订确认</span><span data-lang="ko">예약 내용 확인</span><span data-lang="es">Resumen</span></p>
-          <div id="booking-summary" style="font-size:0.8rem;color:var(--stone);line-height:2;background:var(--em-pale);padding:1.2rem 1.5rem;margin-bottom:1.5rem;border-left:3px solid var(--gold);border-radius:3px"></div>
-        </div>
-        <div class="modal-section">
-          <p class="modal-sec-title"><span data-lang="ja">お支払い情報（Stripe 決済）</span><span data-lang="en">Payment (Stripe)</span><span data-lang="fr">Paiement (Stripe)</span><span data-lang="zh">支付信息（Stripe）</span><span data-lang="ko">결제 정보（Stripe）</span><span data-lang="es">Pago (Stripe)</span></p>
-          <div class="form-group">
-            <label class="form-label"><span data-lang="ja">カード名義</span><span data-lang="en">Cardholder Name</span><span data-lang="fr">Nom sur la carte</span><span data-lang="zh">持卡人姓名</span><span data-lang="ko">카드 명의</span><span data-lang="es">Nombre en tarjeta</span></label>
-            <input type="text" class="form-ctrl" id="card-name" placeholder="TARO YAMADA">
-          </div>
-          <div class="form-group">
-            <label class="form-label"><span data-lang="ja">カード番号</span><span data-lang="en">Card Number</span><span data-lang="fr">Numéro de carte</span><span data-lang="zh">卡号</span><span data-lang="ko">카드 번호</span><span data-lang="es">Número de tarjeta</span></label>
-            <div class="stripe-element-wrap" id="stripe-card-element">
-              <div id="stripe-placeholder" style="font-size:0.82rem;color:#aaa;padding:2px 0">
-                <span data-lang="ja">カード入力欄を読み込み中...</span><span data-lang="en">Loading card input...</span>
-              </div>
-            </div>
-            <div id="card-errors"></div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label"><span data-lang="ja">有効期限</span><span data-lang="en">Expiry</span><span data-lang="fr">Expiration</span><span data-lang="zh">有效期</span><span data-lang="ko">유효기간</span><span data-lang="es">Caducidad</span></label>
-              <input type="text" class="form-ctrl" id="card-exp" placeholder="MM / YY" maxlength="7">
-            </div>
-            <div class="form-group">
-              <label class="form-label">CVC</label>
-              <input type="text" class="form-ctrl" id="card-cvc" placeholder="CVC" maxlength="4">
-            </div>
-          </div>
-        </div>
-        <div class="total-box">
-          <div><div class="total-breakdown" id="total-breakdown-3"></div></div>
-          <div style="text-align:right">
-            <div class="total-amount" id="total-amount-3">¥ —</div>
-            <div class="total-nights" id="total-nights-3"></div>
-          </div>
-        </div>
-        <button class="btn-pay" id="pay-btn" data-action="pay" onclick="processPayment()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          <span data-lang="ja">予約を確定してお支払い</span><span data-lang="en">Confirm & Pay</span><span data-lang="fr">Confirmer & Payer</span><span data-lang="zh">确认并支付</span><span data-lang="ko">예약 확정 및 결제</span><span data-lang="es">Confirmar y Pagar</span>
-        </button>
-        <div class="stripe-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <span><span data-lang="ja">Stripe によるセキュアな決済 · SSL暗号化</span><span data-lang="en">Secure payment by Stripe · SSL encrypted</span><span data-lang="fr">Paiement sécurisé Stripe · SSL</span><span data-lang="zh">Stripe安全支付 · SSL加密</span><span data-lang="ko">Stripe 보안 결제 · SSL 암호화</span><span data-lang="es">Pago seguro Stripe · SSL</span></span>
-        </div>
-        <div style="margin-top:0.8rem;text-align:center">
-          <button class="btn-back" onclick="goStep(2)"><span data-lang="ja">← お客様情報に戻る</span><span data-lang="en">← Back to Guest Info</span><span data-lang="fr">← Retour</span><span data-lang="zh">← 返回</span><span data-lang="ko">← 돌아가기</span><span data-lang="es">← Volver</span></button>
-        </div>
+      <button class="btn-next" onclick="nextStep(1)"><span data-lang="ja">次へ：お客様情報</span><span data-lang="en">Next: Guest Info</span><span data-lang="fr">Suivant</span><span data-lang="zh">下一步</span><span data-lang="ko">다음</span><span data-lang="es">Siguiente</span></button>
+    </div>
+    <!-- STEP 2 -->
+    <div class="step-panel" id="sp2">
+      <p class="modal-sec-title"><span data-lang="ja">お客様情報</span><span data-lang="en">Guest Information</span><span data-lang="fr">Informations client</span><span data-lang="zh">客户信息</span><span data-lang="ko">고객 정보</span><span data-lang="es">Información del huésped</span></p>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label"><span data-lang="ja">姓</span><span data-lang="en">Last Name</span><span data-lang="fr">Nom</span><span data-lang="zh">姓</span><span data-lang="ko">성</span><span data-lang="es">Apellido</span></label><input type="text" class="form-ctrl" id="g-lname" placeholder="Yamada"></div>
+        <div class="form-group"><label class="form-label"><span data-lang="ja">名</span><span data-lang="en">First Name</span><span data-lang="fr">Prénom</span><span data-lang="zh">名</span><span data-lang="ko">이름</span><span data-lang="es">Nombre</span></label><input type="text" class="form-ctrl" id="g-fname" placeholder="Taro"></div>
       </div>
-
-      <!-- SUCCESS -->
-      <div class="success-screen" id="success-screen">
-        <div class="success-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h3 class="success-title"><span data-lang="ja">ご予約を承りました</span><span data-lang="en">Booking Received!</span><span data-lang="fr">Réservation reçue!</span><span data-lang="zh">预订已受理</span><span data-lang="ko">예약이 접수되었습니다</span><span data-lang="es">¡Reserva recibida!</span></h3>
-        <p class="success-body"><span data-lang="ja">確認メールをお送りします。ホスト Kiwa より24時間以内にご連絡差し上げます。鵠沼 Hideaway でお待ちしております。</span><span data-lang="en">A confirmation email is on its way. Host Kiwa will contact you within 24 hours. We look forward to welcoming you!</span><span data-lang="fr">Email de confirmation en route. Kiwa vous contactera sous 24h.</span><span data-lang="zh">确认邮件已发出，房东Kiwa将在24小时内联系您。</span><span data-lang="ko">확인 이메일을 발송했습니다. 호스트 Kiwa가 24시간 내에 연락드립니다.</span><span data-lang="es">Email de confirmación enviado. Kiwa se pondrá en contacto en 24h.</span></p>
-        <button class="btn-next" onclick="closeModal()" style="max-width:200px;margin:0 auto"><span data-lang="ja">閉じる</span><span data-lang="en">Close</span><span data-lang="fr">Fermer</span><span data-lang="zh">关闭</span><span data-lang="ko">닫기</span><span data-lang="es">Cerrar</span></button>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-ctrl" id="g-email" placeholder="example@email.com"></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label"><span data-lang="ja">人数</span><span data-lang="en">Guests</span><span data-lang="fr">Personnes</span><span data-lang="zh">人数</span><span data-lang="ko">인원</span><span data-lang="es">Huéspedes</span></label><select class="form-ctrl" id="g-count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></div>
+        <div class="form-group"><label class="form-label"><span data-lang="ja">ご要望（任意）</span><span data-lang="en">Requests (optional)</span></label><input type="text" class="form-ctrl" id="g-notes"></div>
       </div>
+      <div class="total-box" style="margin:1.5rem 0">
+        <div class="total-box-top"><div><div class="total-label">TOTAL</div><div class="total-nights" id="t2-nights"></div></div><div class="total-amount" id="t2-amount">¥—</div></div>
+        <div class="total-breakdown" id="t2-breakdown"></div>
+      </div>
+      <button class="btn-next" onclick="nextStep(2)"><span data-lang="ja">次へ：お支払い</span><span data-lang="en">Next: Payment</span><span data-lang="fr">Suivant: Paiement</span><span data-lang="zh">下一步：支付</span><span data-lang="ko">다음: 결제</span><span data-lang="es">Siguiente: Pago</span></button>
+      <button class="btn-back" onclick="goStep(1)"><span data-lang="ja">← 戻る</span><span data-lang="en">← Back</span><span data-lang="fr">← Retour</span><span data-lang="zh">← 返回</span><span data-lang="ko">← 뒤로</span><span data-lang="es">← Volver</span></button>
+    </div>
+    <!-- STEP 3 -->
+    <div class="step-panel" id="sp3">
+      <p class="modal-sec-title"><span data-lang="ja">予約内容確認</span><span data-lang="en">Booking Summary</span><span data-lang="fr">Récapitulatif</span><span data-lang="zh">预订确认</span><span data-lang="ko">예약 확인</span><span data-lang="es">Resumen</span></p>
+      <div class="booking-summary" id="bk-summary"></div>
+      <p class="modal-sec-title" style="margin-top:1.5rem"><span data-lang="ja">クレジットカード情報</span><span data-lang="en">Card Details</span><span data-lang="fr">Carte bancaire</span><span data-lang="zh">信用卡信息</span><span data-lang="ko">카드 정보</span><span data-lang="es">Tarjeta</span></p>
+      <div class="form-group"><label class="form-label"><span data-lang="ja">カード名義</span><span data-lang="en">Cardholder Name</span><span data-lang="fr">Nom sur la carte</span><span data-lang="zh">持卡人姓名</span><span data-lang="ko">카드 명의</span><span data-lang="es">Nombre</span></label><input type="text" class="form-ctrl" id="card-name" placeholder="TARO YAMADA"></div>
+      <div class="form-group"><label class="form-label"><span data-lang="ja">カード番号</span><span data-lang="en">Card Number</span><span data-lang="fr">Numéro</span><span data-lang="zh">卡号</span><span data-lang="ko">카드 번호</span><span data-lang="es">Número</span></label><div class="stripe-wrap" id="stripe-card-el"></div></div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label"><span data-lang="ja">有効期限</span><span data-lang="en">Expiry</span></label><div class="stripe-wrap" id="stripe-exp-el"></div></div>
+        <div class="form-group"><label class="form-label">CVC</label><div class="stripe-wrap" id="stripe-cvc-el"></div></div>
+      </div>
+      <div id="card-errors"></div>
+      <div class="total-box">
+        <div class="total-box-top"><div><div class="total-label">TOTAL</div><div class="total-nights" id="t3-nights"></div></div><div class="total-amount" id="t3-amount">¥—</div></div>
+        <div class="total-breakdown" id="t3-breakdown"></div>
+      </div>
+      <button class="btn-pay" id="pay-btn" onclick="processPayment()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <span data-lang="ja">予約を確定してお支払い</span><span data-lang="en">Confirm &amp; Pay</span><span data-lang="fr">Confirmer &amp; Payer</span><span data-lang="zh">确认并支付</span><span data-lang="ko">예약 확정 및 결제</span><span data-lang="es">Confirmar y Pagar</span>
+      </button>
+      <div class="stripe-badge">🔒 <span data-lang="ja">Stripe による安全な決済</span><span data-lang="en">Secure payment by Stripe</span><span data-lang="fr">Paiement sécurisé Stripe</span><span data-lang="zh">Stripe安全支付</span><span data-lang="ko">Stripe 보안 결제</span><span data-lang="es">Pago seguro Stripe</span></div>
+      <button class="btn-back" onclick="goStep(2)" style="margin-top:.8rem"><span data-lang="ja">← 戻る</span><span data-lang="en">← Back</span><span data-lang="fr">← Retour</span><span data-lang="zh">← 返回</span><span data-lang="ko">← 뒤로</span><span data-lang="es">← Volver</span></button>
+    </div>
+    <!-- SUCCESS -->
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C8A96E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <h3 class="success-title"><span data-lang="ja">ご予約を承りました</span><span data-lang="en">Booking Confirmed!</span><span data-lang="fr">Réservation reçue!</span><span data-lang="zh">预订已确认</span><span data-lang="ko">예약이 확인되었습니다</span><span data-lang="es">¡Reserva confirmada!</span></h3>
+      <p class="success-body"><span data-lang="ja">確認メールをお送りしました。ホスト Kiwa より24時間以内にご連絡いたします。鵠沼 Hideaway でお待ちしております。</span><span data-lang="en">A confirmation email is on its way. Host Kiwa will be in touch within 24 hours. We look forward to welcoming you!</span><span data-lang="fr">Email de confirmation envoyé. Kiwa vous contactera sous 24h.</span><span data-lang="zh">确认邮件已发出，房东Kiwa将在24小时内联系您。</span><span data-lang="ko">확인 이메일을 보냈습니다. 호스트 Kiwa가 24시간 내에 연락드립니다.</span><span data-lang="es">Email de confirmación enviado. Kiwa se pondrá en contacto en 24h.</span></p>
+      <button class="btn-next" onclick="closeModal()" style="max-width:180px;margin:0 auto"><span data-lang="ja">閉じる</span><span data-lang="en">Close</span><span data-lang="fr">Fermer</span><span data-lang="zh">关闭</span><span data-lang="ko">닫기</span><span data-lang="es">Cerrar</span></button>
     </div>
   </div>
 </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lb" style="display:none;position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.92);align-items:center;justify-content:center" onclick="if(event.target===this)closeLB()">
+  <button onclick="closeLB()" style="position:absolute;top:1rem;right:1.5rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer">✕</button>
+  <button onclick="lbNav(-1);event.stopPropagation()" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:2rem;padding:.5rem 1rem;cursor:pointer;border-radius:3px">‹</button>
+  <img id="lb-img" src="" style="max-width:90vw;max-height:88vh;object-fit:contain;border-radius:4px">
+  <button onclick="lbNav(1);event.stopPropagation()" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:2rem;padding:.5rem 1rem;cursor:pointer;border-radius:3px">›</button>
+</div>
 
 <script>
-/* ════ CONFIG ════ */
-const STRIPE_PK = 'pk_live_51TfVJZKGh833p9sf5NT6N7wkExgqnlzz98YAoDerrDCQY1Av3zbUgV2siI00Mqd10AxQJPm2H8qXzssQRvY2oycP00lmR1ANoG';
-const AVAILABILITY_API = 'https://kugenuma-hideaway.vercel.app/api/availability';
+/* ── CONFIG ── */
+var STRIPE_PK='pk_live_51TfVJZKGh833p9sf5NT6N7wkExgqnlzz98YAoDerrDCQY1Av3zbUgV2siI00Mqd10AxQJPm2H8qXzssQRvY2oycP00lmR1ANoG';
+var API_BASE='https://kugenuma-hideaway.vercel.app';
+var RATES={peak:25000,high:20000,standard:15000},CLEANING=5000;
 
-/* ════ RATES ════ */
-const RATES = { peak: 25000, high: 20000, standard: 15000 };
-const CLEANING = 5000;
+/* ── LANG ── */
+var LANGS=['ja','en','fr','zh','ko','es'],currentLang='ja';
+function setLang(l){if(LANGS.indexOf(l)<0)l='ja';currentLang=l;
+  var r=document.documentElement;LANGS.forEach(function(x){r.classList.remove('lang-'+x);});r.classList.add('lang-'+l);
+  document.querySelectorAll('.lang-btn').forEach(function(b,i){b.classList.toggle('active',LANGS[i]===l);});
+  document.querySelectorAll('[data-lang]').forEach(function(e){e.style.display=e.getAttribute('data-lang')===l?'':'none';});
+  try{localStorage.setItem('kg-lang',l);}catch(e){}}
 
-function getSeason(d) {
-  var m = d.getMonth()+1, day = d.getDate(), dow = d.getDay();
-  if ((m===5&&day<=6)||(m===4&&day>=28)||m===7||m===8||(m===12&&day>=28)||(m===1&&day<=3)) return 'peak';
-  if (dow===6) return 'high';
-  return 'standard';
-}
+/* ── RATES ── */
+function getSeason(d){var m=d.getMonth()+1,day=d.getDate(),dow=d.getDay();
+  if((m===4&&day>=28)||(m===5&&day<=6)||m===7||m===8||(m===12&&day>=28)||(m===1&&day<=3))return'peak';
+  if(dow===6)return'high';return'standard';}
+function nightsBetween(a,b){return Math.round((b-a)/86400000);}
+function calcTotal(ci,co){var n=nightsBetween(ci,co);var s=getSeason(ci);var r=RATES[s];return{nights:n,rate:r,season:s,total:n*r+CLEANING};}
+function fmtYMD(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function fmtDisp(d){var ms=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  if(currentLang==='ja'||currentLang==='zh')return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
+  if(currentLang==='ko')return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';
+  return ms[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();}
 
-/* ════ LANGUAGE ════ */
-const LANGS = ['ja','en','fr','zh','ko','es'];
-var currentLang = 'ja';
-function setLang(lang) {
-  if (!lang||LANGS.indexOf(lang)===-1) lang='ja';
-  currentLang = lang;
-  var root = document.documentElement;
-  LANGS.forEach(function(l){root.classList.remove('lang-'+l);});
-  root.classList.add('lang-'+lang);
-  document.querySelectorAll('.lang-btn').forEach(function(btn){
-    btn.classList.toggle('active', btn.getAttribute('data-lang-target')===lang);
-  });
-  document.querySelectorAll('[data-lang]').forEach(function(el){
-    el.style.display=(el.getAttribute('data-lang')===lang)?'':'none';
-  });
-  document.querySelectorAll('[data-lang-block]').forEach(function(el){
-    el.style.display=(el.getAttribute('data-lang-block')===lang)?'block':'none';
-  });
-  try{localStorage.setItem('kugenuma-lang',lang);}catch(e){}
-}
+/* ── AVAILABILITY ── */
+var UNAVAIL=new Set();
+function loadAvail(){fetch(API_BASE+'/api/availability').then(function(r){return r.json();}).then(function(d){if(d.success&&d.bookedDates){UNAVAIL=new Set(d.bookedDates);renderCal();}}).catch(function(){});}
 
-/* ════ AVAILABILITY ════ */
-var UNAVAILABLE = new Set();
-function loadAvailability() {
-  if (AVAILABILITY_API.indexOf('YOUR_VERCEL')!==-1) return;
-  fetch(AVAILABILITY_API).then(function(r){return r.json();}).then(function(d){
-    if (d.success&&Array.isArray(d.bookedDates)){UNAVAILABLE=new Set(d.bookedDates);renderCalendar();}
-  }).catch(function(){});
-}
-
-/* ════ CALENDAR ════ */
-var MONTHS={ja:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],fr:['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'],zh:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],ko:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],es:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']};
-var DAYS={ja:['日','月','火','水','木','金','土'],en:['Su','Mo','Tu','We','Th','Fr','Sa'],fr:['Di','Lu','Ma','Me','Je','Ve','Sa'],zh:['日','一','二','三','四','五','六'],ko:['일','월','화','수','목','금','토'],es:['Do','Lu','Ma','Mi','Ju','Vi','Sá']};
+/* ── CALENDAR ── */
 var today=new Date();today.setHours(0,0,0,0);
-var calYear=today.getFullYear(),calMonth=today.getMonth();
-var checkIn=null,checkOut=null;
-
-function toYMD(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
-function toDisp(d){var l=currentLang;if(l==='ja')return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';if(l==='zh')return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';if(l==='ko')return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';var ms=MONTHS[l]||MONTHS.en;return ms[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();}
-function toISO(d){return toYMD(d);}
-function prevMonth(){calMonth--;if(calMonth<0){calMonth=11;calYear--;}renderCalendar();}
-function nextMonth(){calMonth++;if(calMonth>11){calMonth=0;calYear++;}renderCalendar();}
-
-function renderCalendar(){
-  var lang=currentLang;
-  var ms=MONTHS[lang]||MONTHS.ja;
-  var ds=DAYS[lang]||DAYS.ja;
-  var lbl=document.getElementById('cal-month-label');
-  if(lbl) lbl.textContent=(lang==='ja'||lang==='zh')?calYear+'年'+ms[calMonth]:ms[calMonth]+' '+calYear;
-  var grid=document.getElementById('cal-grid');
-  if(!grid) return;
-  grid.innerHTML='';
-  ds.forEach(function(d){var el=document.createElement('div');el.className='cal-dow';el.textContent=d;grid.appendChild(el);});
-  var first=new Date(calYear,calMonth,1).getDay();
-  for(var i=0;i<first;i++){var bl=document.createElement('div');grid.appendChild(bl);}
-  var days=new Date(calYear,calMonth+1,0).getDate();
+var calY=today.getFullYear(),calM=today.getMonth();
+var ci=null,co=null;
+var MNAMES={ja:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],fr:['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'],zh:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],ko:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],es:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']};
+var DNAMES={ja:['日','月','火','水','木','金','土'],en:['Su','Mo','Tu','We','Th','Fr','Sa'],fr:['Di','Lu','Ma','Me','Je','Ve','Sa'],zh:['日','一','二','三','四','五','六'],ko:['일','월','화','수','목','금','토'],es:['Do','Lu','Ma','Mi','Ju','Vi','Sá']};
+function calPrev(){calM--;if(calM<0){calM=11;calY--;}renderCal();}
+function calNext(){calM++;if(calM>11){calM=0;calY++;}renderCal();}
+function renderCal(){
+  var l=currentLang,ms=MNAMES[l]||MNAMES.ja,ds=DNAMES[l]||DNAMES.ja;
+  var lbl=document.getElementById('cal-lbl');
+  if(lbl)lbl.textContent=(l==='ja'||l==='zh')?calY+'年'+ms[calM]:ms[calM]+' '+calY;
+  var g=document.getElementById('cal-grid');if(!g)return;g.innerHTML='';
+  ds.forEach(function(d){var e=document.createElement('div');e.className='cal-dow';e.textContent=d;g.appendChild(e);});
+  var first=new Date(calY,calM,1).getDay(),days=new Date(calY,calM+1,0).getDate();
+  for(var i=0;i<first;i++){g.appendChild(document.createElement('div'));}
   for(var d=1;d<=days;d++){
-    var date=new Date(calYear,calMonth,d);
-    var ymd=toYMD(date);
-    var el=document.createElement('div');
-    el.textContent=d;el.className='cal-day';
-    if(date<today){el.classList.add('cal-disabled');}
-    else if(UNAVAILABLE.has(ymd)){el.classList.add('cal-booked');}
+    var dt=new Date(calY,calM,d),ymd=fmtYMD(dt);
+    var e=document.createElement('div');e.textContent=d;e.className='cal-day';
+    if(dt<today){e.classList.add('cal-past');}
+    else if(UNAVAIL.has(ymd)){e.classList.add('cal-booked');}
     else{
-      if(checkIn&&toYMD(date)===toYMD(checkIn)) el.classList.add('cal-checkin');
-      else if(checkOut&&toYMD(date)===toYMD(checkOut)) el.classList.add('cal-checkout');
-      else if(checkIn&&checkOut&&date>checkIn&&date<checkOut) el.classList.add('cal-inrange');
-      else if(toYMD(date)===toYMD(today)) el.classList.add('cal-today');
-      el.addEventListener('click',(function(dt){return function(){selectDate(dt);};})(date));
+      if(ci&&fmtYMD(dt)===fmtYMD(ci))e.classList.add('cal-checkin');
+      else if(co&&fmtYMD(dt)===fmtYMD(co))e.classList.add('cal-checkout');
+      else if(ci&&co&&dt>ci&&dt<co)e.classList.add('cal-inrange');
+      else if(fmtYMD(dt)===fmtYMD(today))e.classList.add('cal-today');
+      e.addEventListener('click',(function(dt2){return function(){selectDate(dt2);};})(dt));
     }
-    grid.appendChild(el);
+    g.appendChild(e);
   }
-  updatePriceBox();
+  updateTotals();
+}
+function selectDate(d){if(!ci||co||(d<=ci)){ci=d;co=null;}else{co=d;}renderCal();
+  var box=document.getElementById('total-box-1');if(box)box.style.display=(ci&&co)?'block':'none';}
+function updateTotals(){
+  if(!ci||!co)return;var c=calcTotal(ci,co);
+  var bd='¥'+c.rate.toLocaleString()+'×'+c.nights+'泊 + 清掃料¥'+CLEANING.toLocaleString();
+  ['t1','t2','t3'].forEach(function(p){
+    var a=document.getElementById(p+'-amount');var n=document.getElementById(p+'-nights');var b=document.getElementById(p+'-breakdown');
+    if(a)a.textContent='¥'+c.total.toLocaleString();
+    if(n)n.textContent=c.nights+'泊';
+    if(b)b.textContent=bd;
+  });
 }
 
-function selectDate(date){
-  if(!checkIn||checkOut||(date<=checkIn)){checkIn=date;checkOut=null;}
-  else{checkOut=date;}
-  renderCalendar();
-  var box=document.getElementById('total-box-1');
-  if(box) box.style.display=(checkIn&&checkOut)?'flex':'none';
-}
-
-function updatePriceBox(){
-  if(!checkIn||!checkOut) return;
-  var nights=Math.round((checkOut-checkIn)/86400000);
-  if(nights<=0) return;
-  var season=getSeason(checkIn);
-  var rate=RATES[season]||RATES.standard;
-  var total=nights*rate+CLEANING;
-  var brkEl1=document.getElementById('total-breakdown-1');
-  var totEl1=document.getElementById('total-amount-1');
-  var ntEl1=document.getElementById('total-nights-1');
-  if(brkEl1) brkEl1.textContent=nights+'泊 × ¥'+rate.toLocaleString()+' + 清掃料 ¥'+CLEANING.toLocaleString();
-  if(totEl1) totEl1.textContent='¥'+total.toLocaleString();
-  if(ntEl1) ntEl1.textContent=nights+'泊';
-  document.querySelectorAll('.summary-total').forEach(function(el){el.textContent='¥'+total.toLocaleString();});
-  document.querySelectorAll('.summary-nights').forEach(function(el){el.textContent=nights+'泊';});
-  var brkEl2=document.getElementById('total-breakdown-2');
-  if(brkEl2) brkEl2.textContent=nights+'泊 × ¥'+rate.toLocaleString()+' + 清掃料 ¥'+CLEANING.toLocaleString();
-  var brkEl3=document.getElementById('total-breakdown-3');
-  var totEl3=document.getElementById('total-amount-3');
-  var ntEl3=document.getElementById('total-nights-3');
-  if(brkEl3) brkEl3.textContent=nights+'泊 × ¥'+rate.toLocaleString()+' + 清掃料 ¥'+CLEANING.toLocaleString();
-  if(totEl3) totEl3.textContent='¥'+total.toLocaleString();
-  if(ntEl3) ntEl3.textContent=nights+'泊';
-}
-
-/* ════ MODAL ════ */
+/* ── MODAL ── */
 function goStep(n){
-  document.querySelectorAll('.step-panel').forEach(function(p,i){p.style.display=(i+1===n)?'block':'none';p.classList.toggle('active',i+1===n);});
-  document.querySelectorAll('.modal-step').forEach(function(d,i){d.classList.toggle('active',i+1===n);});
+  for(var i=1;i<=3;i++){
+    var p=document.getElementById('sp'+i);if(p)p.style.display=(i===n)?'block':'none';
+    var s=document.getElementById('ms'+i);if(s){s.classList.toggle('active',i===n);s.classList.toggle('done',i<n);}
+  }
+  document.getElementById('success-screen').style.display='none';
   setLang(currentLang);
 }
-
 function openModal(){
-  var bg=document.getElementById('modal-bg');if(!bg)return;
-  loadAvailability();
-  bg.style.display='flex';bg.classList.add('open');document.body.style.overflow='hidden';
-  calYear=today.getFullYear();calMonth=today.getMonth();checkIn=null;checkOut=null;
-  renderCalendar();goStep(1);
-  setTimeout(function(){initStripeElements();setLang(currentLang);},100);
+  document.getElementById('modal-bg').style.display='flex';document.getElementById('modal-bg').classList.add('open');
+  document.body.style.overflow='hidden';
+  calY=today.getFullYear();calM=today.getMonth();ci=null;co=null;
+  loadAvail();renderCal();goStep(1);
+  setTimeout(function(){initStripe();setLang(currentLang);},100);
 }
-function closeModal(){var bg=document.getElementById('modal-bg');if(!bg)return;bg.style.display='none';bg.classList.remove('open');document.body.style.overflow='';}
-function handleBgClick(e){if(e.target===document.getElementById('modal-bg'))closeModal();}
-
-function validateStep1(){if(!checkIn||!checkOut){alert('チェックイン・チェックアウト日を選択してください');return false;}return true;}
-function validateStep2(){
-  var fname=document.getElementById('guest-fname');var lname=document.getElementById('guest-lname');var email=document.getElementById('guest-email');
-  if(!fname||!fname.value.trim()||!lname||!lname.value.trim()){alert('お名前を入力してください');return false;}
-  if(!email||!email.value.includes('@')){alert('正しいメールアドレスを入力してください');return false;}
-  return true;
-}
+function openModalFromStrip(){var sCI=document.getElementById('strip-ci');var sCO=document.getElementById('strip-co');if(sCI&&sCI.value)ci=new Date(sCI.value+'T00:00:00');if(sCO&&sCO.value)co=new Date(sCO.value+'T00:00:00');openModal();}
+function closeModal(){document.getElementById('modal-bg').style.display='none';document.getElementById('modal-bg').classList.remove('open');document.body.style.overflow='';}
 function nextStep(from){
-  if(from===1&&!validateStep1())return;
-  if(from===2&&!validateStep2())return;
-  if(from===1)populateSummary();
+  if(from===1){if(!ci||!co){alert(currentLang==='ja'?'日程を選択してください':'Please select dates.');return;}
+    populateSummary();
+  }
+  if(from===2){
+    var fn=document.getElementById('g-fname').value,ln=document.getElementById('g-lname').value,em=document.getElementById('g-email').value;
+    if(!fn.trim()||!ln.trim()){alert(currentLang==='ja'?'お名前を入力してください':'Please enter your name.');return;}
+    if(!em.includes('@')){alert(currentLang==='ja'?'正しいメールアドレスを入力してください':'Please enter a valid email.');return;}
+  }
   goStep(from+1);
 }
 function populateSummary(){
-  var ciEl=document.getElementById('summary-checkin');var coEl=document.getElementById('summary-checkout');var ntEl=document.getElementById('summary-nights');
-  if(ciEl&&checkIn) ciEl.textContent=toDisp(checkIn);
-  if(coEl&&checkOut) coEl.textContent=toDisp(checkOut);
-  if(ntEl&&checkIn&&checkOut) ntEl.textContent=Math.round((checkOut-checkIn)/86400000)+'泊';
-  var sum=document.getElementById('booking-summary');
-  if(sum&&checkIn&&checkOut){
-    var nights=Math.round((checkOut-checkIn)/86400000);
-    var season=getSeason(checkIn);var rate=RATES[season]||RATES.standard;var total=nights*rate+CLEANING;
-    sum.innerHTML='<strong>鵠沼 Hideaway</strong><br>チェックイン: '+toDisp(checkIn)+'<br>チェックアウト: '+toDisp(checkOut)+'<br>'+nights+'泊 × ¥'+rate.toLocaleString()+' + 清掃料 ¥'+CLEANING.toLocaleString()+'<br><strong>合計: ¥'+total.toLocaleString()+'</strong>';
+  var s=document.getElementById('bk-summary');
+  if(s&&ci&&co){var c=calcTotal(ci,co);
+    s.innerHTML='<strong>鵠沼 Hideaway</strong><br>'+
+      (currentLang==='ja'?'チェックイン':'Check-in')+': '+fmtDisp(ci)+'<br>'+
+      (currentLang==='ja'?'チェックアウト':'Check-out')+': '+fmtDisp(co)+'<br>'+
+      c.nights+'泊 × ¥'+c.rate.toLocaleString()+' + 清掃料 ¥'+CLEANING.toLocaleString()+'<br>'+
+      '<strong>'+(currentLang==='ja'?'合計':'Total')+': ¥'+c.total.toLocaleString()+'</strong>';
   }
-  updatePriceBox();
+  updateTotals();
 }
 
-/* ════ STRIPE ELEMENTS ════ */
-var stripeInstance=null,stripeCard=null,stripeExpiry=null,stripeCvc=null;
-function initStripeElements(){
-  if(stripeCard) return;
-  if(!STRIPE_PK||STRIPE_PK.indexOf('YOUR_')!==-1) return;
-  try{
-    stripeInstance=Stripe(STRIPE_PK);
-    var elements=stripeInstance.elements({locale:'ja'});
-    var style={base:{fontSize:'14px',color:'#1A1A14',fontFamily:"'Noto Sans JP',sans-serif",fontWeight:'300','::placeholder':{color:'#aaa'}},invalid:{color:'#c0392b'}};
-    stripeCard=elements.create('cardNumber',{style:style,showIcon:true});
-    var mountEl=document.getElementById('stripe-card-element');
-    if(mountEl){mountEl.innerHTML='';stripeCard.mount(mountEl);}
-    var expWrap=document.getElementById('card-exp');
-    if(expWrap&&expWrap.parentNode){var expDiv=document.createElement('div');expDiv.id='stripe-expiry-element';expDiv.className='stripe-element-wrap';expWrap.parentNode.replaceChild(expDiv,expWrap);stripeExpiry=elements.create('cardExpiry',{style:style});stripeExpiry.mount(expDiv);}
-    var cvcWrap=document.getElementById('card-cvc');
-    if(cvcWrap&&cvcWrap.parentNode){var cvcDiv=document.createElement('div');cvcDiv.id='stripe-cvc-element';cvcDiv.className='stripe-element-wrap';cvcWrap.parentNode.replaceChild(cvcDiv,cvcWrap);stripeCvc=elements.create('cardCvc',{style:style});stripeCvc.mount(cvcDiv);}
+/* ── STRIPE ── */
+var stripeInst=null,stripeCard=null;
+function initStripe(){if(stripeCard)return;if(!STRIPE_PK||STRIPE_PK.indexOf('pk_live')<0)return;
+  try{stripeInst=Stripe(STRIPE_PK);var els=stripeInst.elements({locale:'ja'});
+    var sty={base:{fontSize:'14px',color:'#1A1A14',fontFamily:"'Noto Sans JP',sans-serif",fontWeight:'300','::placeholder':{color:'#aaa'}},invalid:{color:'#c0392b'}};
+    stripeCard=els.create('cardNumber',{style:sty,showIcon:true});
+    var ce=document.getElementById('stripe-card-el');if(ce){ce.innerHTML='';stripeCard.mount(ce);}
+    var ee=document.getElementById('stripe-exp-el');
+    if(ee){ee.innerHTML='';els.create('cardExpiry',{style:sty}).mount(ee);}
+    var ve=document.getElementById('stripe-cvc-el');
+    if(ve){ve.innerHTML='';els.create('cardCvc',{style:sty}).mount(ve);}
     stripeCard.on('change',function(e){var el=document.getElementById('card-errors');if(el)el.textContent=e.error?e.error.message:'';});
-  }catch(e){console.error('Stripe init:',e);}
-}
-
-/* ════ PAYMENT ════ */
+  }catch(e){console.error('Stripe:',e);}}
 function processPayment(){
-  var btn=document.getElementById('pay-btn');
-  if(btn){btn.disabled=true;btn.innerHTML='<span>処理中...</span>';}
+  var btn=document.getElementById('pay-btn');if(btn){btn.disabled=true;btn.innerHTML='<span>'+(currentLang==='ja'?'処理中...':'Processing...')+'</span>';}
   var errEl=document.getElementById('card-errors');if(errEl)errEl.textContent='';
-  if(!STRIPE_PK||STRIPE_PK.indexOf('YOUR_')!==-1||!stripeInstance){setTimeout(function(){if(btn)btn.disabled=false;showSuccess({mock:true});},800);return;}
-  var fname=(document.getElementById('guest-fname')||{}).value||'';
-  var lname=(document.getElementById('guest-lname')||{}).value||'';
-  var email=(document.getElementById('guest-email')||{}).value||'';
-  var cardName=(document.getElementById('card-name')||{}).value||(fname+' '+lname).trim();
-  var ciStr=checkIn?toISO(checkIn):'';var coStr=checkOut?toISO(checkOut):'';
-  fetch(AVAILABILITY_API.replace('/api/availability','/api/create-payment-intent'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({checkIn:ciStr,checkOut:coStr,guestName:fname+' '+lname,guestEmail:email})})
+  var fn=document.getElementById('g-fname').value,ln=document.getElementById('g-lname').value,em=document.getElementById('g-email').value;
+  var cn=document.getElementById('card-name').value||(fn+' '+ln).trim();
+  var ciS=fmtYMD(ci),coS=fmtYMD(co);
+  if(!stripeInst){setTimeout(function(){if(btn)btn.disabled=false;showSuccess();},800);return;}
+  fetch(API_BASE+'/api/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({checkIn:ciS,checkOut:coS,guestName:fn+' '+ln,guestEmail:em})})
   .then(function(r){return r.json();})
-  .then(function(data){
-    if(!data.success||!data.clientSecret) throw new Error(data.error||'決済準備に失敗しました');
-    return stripeInstance.confirmCardPayment(data.clientSecret,{payment_method:{card:stripeCard,billing_details:{name:cardName,email:email}}}).then(function(result){
-      if(result.error) throw new Error(result.error.message);
-      var pi=result.paymentIntent;
-      return fetch(AVAILABILITY_API.replace('/api/availability','/api/confirm-booking'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({guestName:fname+' '+lname,guestEmail:email,checkIn:ciStr,checkOut:coStr,nights:Math.round((checkOut-checkIn)/86400000),amount:pi.amount,paymentIntentId:pi.id})}).then(function(){return pi;});
-    });
-  })
-  .then(function(){if(btn)btn.disabled=false;showSuccess({});})
-  .catch(function(err){
-    if(btn){btn.disabled=false;btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span data-lang="ja">予約を確定してお支払い</span><span data-lang="en">Confirm & Pay</span>';setLang(currentLang);}
-    if(errEl)errEl.textContent=err.message;
-  });
-}
+  .then(function(d){if(!d.success)throw new Error(d.error||'Error');
+    return stripeInst.confirmCardPayment(d.clientSecret,{payment_method:{card:stripeCard,billing_details:{name:cn,email:em}}})
+    .then(function(res){if(res.error)throw new Error(res.error.message);
+      return fetch(API_BASE+'/api/confirm-booking',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({guestName:fn+' '+ln,guestEmail:em,checkIn:ciS,checkOut:coS,nights:nightsBetween(ci,co),amount:res.paymentIntent.amount,paymentIntentId:res.paymentIntent.id})});
+    });})
+  .then(function(){if(btn)btn.disabled=false;showSuccess();})
+  .catch(function(e){if(btn){btn.disabled=false;btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span data-lang="'+currentLang+'">'+(currentLang==='ja'?'予約を確定してお支払い':'Confirm & Pay')+'</span>';setLang(currentLang);}if(errEl)errEl.textContent=e.message;});}
+function showSuccess(){document.querySelectorAll('.step-panel').forEach(function(p){p.style.display='none';});document.getElementById('success-screen').style.display='block';setLang(currentLang);}
 
-function showSuccess(opts){
-  document.querySelectorAll('.step-panel').forEach(function(p){p.style.display='none';});
-  var ss=document.getElementById('success-screen');if(ss)ss.style.display='block';
-  setLang(currentLang);
-}
+/* ── LIGHTBOX ── */
+var LB_PHOTOS=['https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/7d298951-a0fe-45df-b4de-462db82771e4.jpg','https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/3b3a1557-a434-41e5-b3cc-49b7d9dcddb4.jpg','https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/16865317-2afa-4337-ab6b-2a266fb889a0.jpg','https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/6560a48b-957d-43ac-8757-3c99f8f937c8.jpg','https://a0.muscache.com/im/pictures/airflow/Hosting-1200599961350755816/original/4570f84e-890f-4857-ad4e-13f082f0a4a7.jpg'];
+var lbI=0;
+function openLB(i){lbI=i;document.getElementById('lb-img').src=LB_PHOTOS[i];document.getElementById('lb').style.display='flex';document.body.style.overflow='hidden';}
+function closeLB(){document.getElementById('lb').style.display='none';document.body.style.overflow='';}
+function lbNav(d){lbI=(lbI+d+LB_PHOTOS.length)%LB_PHOTOS.length;document.getElementById('lb-img').src=LB_PHOTOS[lbI];}
+document.addEventListener('keydown',function(e){var lb=document.getElementById('lb');if(lb.style.display==='flex'){if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);}});
 
-/* ════ NAV SCROLL ════ */
-window.addEventListener('scroll',function(){var nav=document.getElementById('main-nav');if(nav)nav.style.background=window.scrollY>80?'rgba(78,114,8,0.97)':'rgba(78,114,8,0.88)';});
+/* ── NAV SCROLL ── */
+window.addEventListener('scroll',function(){var n=document.getElementById('main-nav');if(n)n.style.background=window.scrollY>80?'rgba(38,56,4,.97)':'rgba(38,56,4,.92)';});
 
-/* ════ SCROLL REVEAL ════ */
-(function(){if(!('IntersectionObserver'in window))return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0});document.querySelectorAll('.reveal').forEach(function(el){if(el.getBoundingClientRect().top>window.innerHeight){el.classList.add('animate-pending');obs.observe(el);}});setTimeout(function(){document.querySelectorAll('.animate-pending').forEach(function(el){el.classList.add('visible');});},2000);})();
+/* ── REVEAL ── */
+(function(){if(!('IntersectionObserver'in window))return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}});},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});})();
 
-/* ════ INIT ════ */
-(function(){var saved=null;try{saved=localStorage.getItem('kugenuma-lang');}catch(e){}setLang((saved&&LANGS.indexOf(saved)!==-1)?saved:'ja');})();
+/* ── INIT ── */
+(function(){var s;try{s=localStorage.getItem('kg-lang');}catch(e){}setLang((s&&LANGS.indexOf(s)>=0)?s:'ja');})();
 </script>
 </body>
 </html>
